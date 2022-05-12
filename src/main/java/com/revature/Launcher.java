@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import com.revature.controllers.UserController;
+import com.revature.daos.UserDAO;
+import com.revature.models.User;
 
 import io.javalin.Javalin;
 
@@ -20,7 +22,9 @@ public class Launcher {
 		
 		app.post("/login", uc.loginHandler);
 		
+//		UserDAO uDAO = new UserDAO();
+//		User u1 = new User("username", "password", "BoB", "Anderson", "BoB@bob.com");
+//		uDAO.makeUser(u1);
 		
 	}
-	
 }

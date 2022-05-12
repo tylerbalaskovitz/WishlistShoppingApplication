@@ -1,26 +1,32 @@
 package com.revature.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import com.google.gson.Gson;
 import com.revature.models.LoginDTO;
+import com.revature.services.UserService;
 
 import io.javalin.http.Handler;
 
 public class UserController {
-
+	UserService us = new UserService();
 	public Handler loginHandler = (ctx) -> {
+		String body = ctx.body();
 		
-		String loginCreds = ctx.body();
 		Gson gson = new Gson();
-		LoginDTO lDTO = gson.fromJson(loginCreds, LoginDTO.class);
 		
-		if(lDTO.username.equals("trainer") && lDTO.password.equals("password")) {
+		LoginDTO LDTO = gson.fromJson(body, LoginDTO.class);
 		
-		lDTO.id = 1;
-		String loginJSON = gson.toJson(lDTO);
-		ctx.result(loginJSON);
-		ctx.status(202);
+		if(us.login(LDTO.username, LDTO.password) != null) {
+			ctx.req.getSession();
+
+			ctx.status(202);
+			String employeeJSON = gson.toJson(us.login(LDTO.username, LDTO.password));
+
+			ctx.result(employeeJSON);
 		}else {
 			ctx.status(401);
+			System.out.println("Login Failed");
 		}
 	};
 }
