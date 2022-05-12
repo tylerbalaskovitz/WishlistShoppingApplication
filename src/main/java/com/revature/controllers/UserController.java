@@ -17,13 +17,13 @@ public class UserController {
 		
 		LoginDTO LDTO = gson.fromJson(body, LoginDTO.class);
 		
-		if(us.login(LDTO.username, LDTO.password) != null) {
+		if(us.login(LDTO.getUsername(), LDTO.getPassword()) != null) {
 			ctx.req.getSession();
 
 			ctx.status(202);
-			String employeeJSON = gson.toJson(us.login(LDTO.username, LDTO.password));
+			String userJSON = gson.toJson(us.login(LDTO.getUsername(), LDTO.getPassword()));
 
-			ctx.result(employeeJSON);
+			ctx.result(userJSON);
 		}else {
 			ctx.status(401);
 			System.out.println("Login Failed");

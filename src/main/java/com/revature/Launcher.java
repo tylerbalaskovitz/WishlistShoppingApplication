@@ -17,10 +17,13 @@ public class Launcher {
 				config ->{
 					config.enableCorsForAllOrigins();
 				}
+				
 			).start(5000);
+		System.out.print("Got here");
 		
 		
 		app.post("/login", uc.loginHandler);
+		
 		
 //		UserDAO uDAO = new UserDAO();
 //		User u1 = new User("username", "password", "BoB", "Anderson", "BoB@bob.com");
