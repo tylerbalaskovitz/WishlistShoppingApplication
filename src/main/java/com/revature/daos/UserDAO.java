@@ -10,11 +10,11 @@ import com.revature.models.User;
 public class UserDAO {
 
 	public User getUser(String username) {
+		System.out.print("Hello");
 		Session ses = HibernateUtil.getSession();
 		User user = ses.get(User.class, username);
 		HibernateUtil.closeSession();
 		return user;
-		
 	}
 	
 	public void makeUser(User u) {
