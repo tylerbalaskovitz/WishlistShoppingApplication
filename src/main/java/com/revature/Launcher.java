@@ -25,6 +25,8 @@ public class Launcher {
 //		app.post("/login", uc.loginHandler);
 		
 		
+		System.out.println("Hello, test for the GIT Pull and Pushes inconsistencies");
+		
 		UserDAO uDAO = new UserDAO();
 		User u1 = new User("username", "password", "BoB", "Anderson", "BoB@bob.com");
 		uDAO.makeUser(u1);
