@@ -13,7 +13,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)//makes pk serial
 	@Column
-	private int userId;
+	private int id;
 	@Column
 	private String username;
 	@Column
@@ -31,7 +31,7 @@ public class User {
 	
 	public User(int userId, String username, String password, String firstName, String lastName, String userEmail) {
 		super();
-		this.userId = userId;
+		this.id = userId;
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
@@ -51,11 +51,11 @@ public class User {
 	
 	
 	public int getUserId() {
-		return userId;
+		return id;
 	}
 
 	public void setUserId(int userId) {
-		this.userId = userId;
+		this.id = userId;
 	}
 
 	public String getUsername() {
@@ -100,7 +100,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", username=" + username + ", password=" + password + ", firstName="
+		return "User [userId=" + id + ", username=" + username + ", password=" + password + ", firstName="
 				+ firstName + ", lastName=" + lastName + ", userEmail=" + userEmail + "]";
 	}
 	
