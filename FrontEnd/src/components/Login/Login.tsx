@@ -51,6 +51,10 @@ export const Login: React.FC<any> = () => {
         }
     }, [appState])
 
+    // useEffect(
+  
+        
+    // );
 
     return(
         <div className="login">
@@ -66,12 +70,12 @@ export const Login: React.FC<any> = () => {
                     <input type="password" name="password" placeholder="password" onChange={handleChange}/>
                 </div>
 
-                <button className="login-button" onClick={login}>Catch 'em all!</button>
+                <button className="login-button" onClick={login}>Login</button>
             </div>
-
-            <div className="disclaimer">
-                <p>PokeMart© and its affiliates do not condone the misuse or mistreatment of pokemon</p>
+            <div className="createUser">
+                <button className="createUser-button" onClick={createNewUser}>Create a User</button>
             </div>
+           
         </div>
     )
 

@@ -1,11 +1,19 @@
 package com.revature.models;
 
 public class LoginDTO {
+	private int id;
 	private String username;
 	private String password;
 	
 	public LoginDTO() {
 		super();
+	}
+	
+	public LoginDTO(int id, String username, String password) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
 	}
 
 	public LoginDTO(String username, String password) {

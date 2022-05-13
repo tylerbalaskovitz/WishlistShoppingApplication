@@ -19,8 +19,9 @@ public class UserController {
 		
 		if(us.login(LDTO.getUsername(), LDTO.getPassword()) != null) {
 			ctx.req.getSession();
-
+			
 			ctx.status(202);
+			
 			String userJSON = gson.toJson(us.login(LDTO.getUsername(), LDTO.getPassword()));
 
 			ctx.result(userJSON);
