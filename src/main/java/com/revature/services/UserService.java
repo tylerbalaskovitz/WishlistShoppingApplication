@@ -19,4 +19,13 @@ public class UserService {
 			return null;
 		}
 	}
+	
+	public boolean newUserService(User u) {
+		if(uDAO.getUser(u.getUsername()) != null) {
+			uDAO.makeUser(u);
+			return true;
+		}else {
+			return false;
+		}
+	}
 }

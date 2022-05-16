@@ -27,7 +27,7 @@ public class UserDAO {
 	
 	public void makeUser(User u) {
 		Session ses = HibernateUtil.getSession();
-		ses.save(u);
+		ses.persist(u);
 		HibernateUtil.closeSession();
 		
 	}

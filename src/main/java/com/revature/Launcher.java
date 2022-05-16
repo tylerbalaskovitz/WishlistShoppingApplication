@@ -24,6 +24,7 @@ public class Launcher {
 		
 		app.post("/login", uc.loginHandler);
 		
+		app.post("/createuser", uc.newUserHandler);
 		
 		System.out.println("Hello, test for the GIT Pull and Pushes inconsistencies");
 		
