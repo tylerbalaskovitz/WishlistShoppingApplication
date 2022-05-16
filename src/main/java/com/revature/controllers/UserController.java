@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.revature.models.LoginDTO;
+import com.revature.models.User;
 import com.revature.services.UserService;
 
 import io.javalin.http.Handler;
@@ -29,5 +30,20 @@ public class UserController {
 			ctx.status(401);
 			System.out.println("Login Failed");
 		}
+	};
+	
+	public Handler newUserHandler = (ctx) ->{
+		String body = ctx.body();
+		
+		Gson gson = new Gson();
+		
+		User newUser = gson.fromJson(body, User.class);
+		
+		if(us.newUserService(newUser) == true) {
+			ctx.status(202);
+		}else {
+			ctx.status(401);
+		}
+		
 	};
 }
