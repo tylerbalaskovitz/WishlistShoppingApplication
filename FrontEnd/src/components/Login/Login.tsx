@@ -51,10 +51,10 @@ export const Login: React.FC<any> = () => {
         }
     }, [appState])
 
-    // useEffect(
-  
-        
-    // );
+
+    function createNewUser(){
+        navigate("/createuser");
+    }
 
     return(
         <div className="createNewUser">
