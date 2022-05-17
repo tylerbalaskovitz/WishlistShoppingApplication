@@ -35,7 +35,7 @@ export const Login: React.FC<any> = () => {
 
     //login functionality. we take the state objects and send them to the userLogin Action
     //sending the data, aka dispatching the data
-    const createNewUser = async () => {
+    const login = async () => {
         await dispatch(
             loginUser({username, password}) as any
             //these are the states that were changed with handleChange
@@ -69,7 +69,7 @@ export const Login: React.FC<any> = () => {
                 </div>
 
                 <div className="login">
-                <button className="login-button" onClick={createNewUser}>Login</button> 
+                <button className="login-button" onClick={login}>Login</button> 
                 <button className="login-button" onClick={createNewUser}>Create New User</button> 
 
                 </div>  
