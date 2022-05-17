@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//The following is the use of hibernate so that way we can have data sent to the database using classes rather than SQL statements
+
+
 @Entity
 @Table(name = "users")
 public class User {

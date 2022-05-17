@@ -21,9 +21,11 @@ public class Launcher {
 			).start(5000);
 		System.out.print("Got here");
 		
-		
+		//This HTTP request is used to login using the User Controller's login handler
 		app.post("/login", uc.loginHandler);
 		
+		
+		//This HTTP request is used to create a new user using the newUserHandler in the User Controller 
 		app.post("/createuser", uc.newUserHandler);
 		
 		System.out.println("Hello, test for the GIT Pull and Pushes inconsistencies");
