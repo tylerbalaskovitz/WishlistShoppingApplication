@@ -1,20 +1,16 @@
- //This is the file where our actual business logic will occur (like calls to an API)
+//This is the file where our actual business logic will occur (like calls to an API)
 
 import axios from "axios";
 import { IUser } from "../store/types"
-import { NUser } from "../store/types"
 import { LOGIN_USER } from "./actionTypes";
-import { ADD_USER } from "./actionTypes";
+
 //There will be functionality here that use or change our User state object
 
 //interface that models the user's login credentials, we'll send in our POST request
-//second interface for new users
 interface UserLogin {
     username: string,
     password: string
 }
-
-
 
 //loginUser functionality
 //we send in an object of type UserLogin, since that's what we're sending in our POST
@@ -51,5 +47,5 @@ export const loginUser = (loginCreds:UserLogin) => async (dispatch:any) => {
     } catch (e) {
         console.log("LOGIN FAILED!")
     }
-}
 
+}

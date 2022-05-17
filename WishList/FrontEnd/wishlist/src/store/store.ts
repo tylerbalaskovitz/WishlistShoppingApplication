@@ -10,18 +10,8 @@ const initialState:AppState = {
         id:0,
         username:"",
         password:""
-    },
-    nUser : {
-        id:0,
-        username:"",
-        password:"",
-        firstname:"",
-        lastname:"",
-        email:""
-    } 
-    
-
-
+    }
+  
 } //these default values will get changed as we click around the application
 //when the user logs in, this user object will get populated with the user's data
 //when a pokemon is retrieved the poke object will get populated with pokemon data 
