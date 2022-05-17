@@ -32,14 +32,23 @@ public class UserController {
 		}
 	};
 	
+	//This makes a new user
 	public Handler newUserHandler = (ctx) ->{
+		
+		// the body String is created using the Handler's configuration's body
 		String body = ctx.body();
 		
+		
+		//We are instantiating a new GSON objecject
 		Gson gson = new Gson();
 		
+		//a new user object is created and taking the body from JSON into GSON using the variables inside of the user class
 		User newUser = gson.fromJson(body, User.class);
 		
-		if(us.newUserService(newUser) == true) {
+		//if the us(userService) new userUserService is true for a new user then we get a 202 messaging saying that it was a success being sent to the server
+		//in the configuration file of the handler. If not a 401 is sent to the configuration file of the handler
+		// if the new user is true then the values from the services is being passed up.
+		if(us.newUserService(newUser) != null) {
 			ctx.status(202);
 		}else {
 			ctx.status(401);

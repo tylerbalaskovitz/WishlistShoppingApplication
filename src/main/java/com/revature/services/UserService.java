@@ -20,12 +20,13 @@ public class UserService {
 		}
 	}
 	
-	public boolean newUserService(User u) {
-		if(uDAO.getUser(u.getUsername()) != null) {
+	// a boolean is created for a true or false value of user
+	public User newUserService(User u) {
+		
+	
 			uDAO.makeUser(u);
-			return true;
-		}else {
-			return false;
+		
+			return u;
 		}
-	}
+	
 }
