@@ -25,11 +25,11 @@ public class UserDAO {
 		return user;
 	}
 	
-	public void makeUser(User u) {
+	public User makeUser(User u) {
 		Session ses = HibernateUtil.getSession();
-		ses.persist(u);
+		ses.save(u);
 		HibernateUtil.closeSession();
-		
+		return u;
 	}
 //public List<Movie> getMoviesByDirectorId(int id){
 //		
