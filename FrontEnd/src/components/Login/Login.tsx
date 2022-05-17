@@ -35,7 +35,7 @@ export const Login: React.FC<any> = () => {
 
     //login functionality. we take the state objects and send them to the userLogin Action
     //sending the data, aka dispatching the data
-    const login = async () => {
+    const createNewUser = async () => {
         await dispatch(
             loginUser({username, password}) as any
             //these are the states that were changed with handleChange
@@ -51,18 +51,16 @@ export const Login: React.FC<any> = () => {
         }
     }, [appState])
 
-    // useEffect(
-  
-        
-    // );
+
+    function createNewUser(){
+        navigate("/createuser");
+    }
 
     return(
-        <div className="login">
+        <div className="createNewUser">
 
             <div className="text-container">
-                <h1>Welcome to PokeMart!</h1>
-                <h3>Sign in to browse for a pokemanz</h3>
-
+               
                 <div className="input-container">
                     <input type="text" name="username" placeholder="username" onChange={handleChange}/>
                 </div>
@@ -70,13 +68,15 @@ export const Login: React.FC<any> = () => {
                     <input type="password" name="password" placeholder="password" onChange={handleChange}/>
                 </div>
 
-                <button className="login-button" onClick={login}>Login</button>
-            </div>
-            <div className="createUser">
-                <button className="createUser-button" onClick={createNewUser}>Create a User</button>
-            </div>
-           
-        </div>
-    )
+                <div className="login">
+                <button className="login-button" onClick={createNewUser}>Login</button> 
+                <button className="login-button" onClick={createNewUser}>Create New User</button> 
 
-} 
+                </div>  
+
+
+        </div>
+       
+       </div>
+    )
+}
