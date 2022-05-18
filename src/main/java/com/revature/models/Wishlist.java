@@ -7,15 +7,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Entity
+@Table(name = "wishlist")
 public class Wishlist {
 
 	//below are the columns names used when calling all products https://fakestoreapi.com/products 
 	//NOTE: THe ID IS NOT SERIAL since there needs to be multiple instances of items to 
 	//be stored for multiple users.
 	
-	@Entity
-	@Table(name = "wishlist")
-	public class User {
+	
+
 		
 	
 
@@ -32,19 +33,23 @@ public class Wishlist {
 		@Column
 		private String image;
 		
+		
+		
 		//there still needs to be code for referencing the user table via a FK
 		//for users to have individual wishlists.
 		
 		
-		public User() {
-			super();
+		
+
+
+
+		
+
+		public int getId() {
+			return id;
 		}
-	
-		
-		
-		
-		
-		public User(int id, String title, String price, String description, String category, String image) {
+
+		public Wishlist(int id, String title, String price, String description, String category, String image) {
 			super();
 			this.id = id;
 			this.title = title;
@@ -52,14 +57,6 @@ public class Wishlist {
 			this.description = description;
 			this.category = category;
 			this.image = image;
-		}
-
-
-
-
-
-		public int getId() {
-			return id;
 		}
 
 		public void setId(int id) {
@@ -117,4 +114,4 @@ public class Wishlist {
 		
 }
 	
-}
+

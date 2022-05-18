@@ -1,4 +1,4 @@
-* {
+.background {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -6,14 +6,16 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("/public/wishlistBG.png");
- 
-  }
+    background-image: url("/public/wishlistbanner.png");
+    background-size: 40%;
+    
+}
 
 
 
 
 .products-container {
+   
     margin-top: 150px;
     width: 100%;
     min-height: 80vh;
