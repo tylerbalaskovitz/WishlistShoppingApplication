@@ -1,10 +1,15 @@
 package com.revature.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 //The following is the use of hibernate so that way we can have data sent to the database using classes rather than SQL statements
@@ -27,6 +32,9 @@ public class User {
 	private String lastName;
 	@Column
 	private String userEmail;
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name= "wishlist_id")
+	private Wishlist wish;
 	
 	public User() {
 		super();
@@ -51,14 +59,24 @@ public class User {
 		this.userEmail = userEmail;
 	}
 
-	
-	
-	public int getUserId() {
+	public User(int id, String username, String password, String firstName, String lastName, String userEmail,
+			Wishlist wish) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.userEmail = userEmail;
+		this.wish = wish;
+	}
+
+	public int getId() {
 		return id;
 	}
 
-	public void setUserId(int userId) {
-		this.id = userId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getUsername() {
@@ -101,10 +119,19 @@ public class User {
 		this.userEmail = userEmail;
 	}
 
+	public Wishlist getWish() {
+		return wish;
+	}
+
+	public void setWish(Wishlist wish) {
+		this.wish = wish;
+	}
+
 	@Override
 	public String toString() {
-		return "User [userId=" + id + ", username=" + username + ", password=" + password + ", firstName="
-				+ firstName + ", lastName=" + lastName + ", userEmail=" + userEmail + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", userEmail=" + userEmail + ", wish=" + wish + "]";
 	}
+	
 	
 }

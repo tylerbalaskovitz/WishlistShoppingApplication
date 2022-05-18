@@ -14,12 +14,11 @@ public class Wishlist {
 	//below are the columns names used when calling all products https://fakestoreapi.com/products 
 	//NOTE: THe ID IS NOT SERIAL since there needs to be multiple instances of items to 
 	//be stored for multiple users.
-	
-	
-
-		
-	
-
+		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)//makes pk serial
+		@Column
+		private int wishlist_id;
+		//for handling id of products in database
 		@Column
 		private int id;
 		@Column
