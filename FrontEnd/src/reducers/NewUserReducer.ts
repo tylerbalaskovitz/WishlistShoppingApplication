@@ -1,10 +1,10 @@
-import { LOGIN_USER } from "../actions/actionTypes";
+import { ADD_USER } from "../actions/actionTypes";
 import { NUser } from "../store/types";
 //reducers are responsible for calculating and sending new state data to the store
 //this is the user reducer, which will help us calculate changes in the User
 
 let initialState:NUser = {
-    id:0,
+
     username:"",
     password:"",
     firstname:"",
@@ -21,7 +21,7 @@ export const NewUserReducer = (state:NUser = initialState, action: Action) => {
     //switch based on the type in the Action object
     //look at loginUser in the UserACtions to see where this is coming from
     switch(action.type){
-        case LOGIN_USER:
+        case ADD_USER:
             initialState = action.payload
             return {
                 ...initialState

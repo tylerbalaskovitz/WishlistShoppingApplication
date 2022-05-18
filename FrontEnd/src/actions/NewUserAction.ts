@@ -1,9 +1,7 @@
  //This is the file where our actual business logic will occur (like calls to an API)
 
  import axios from "axios";
- import { IUser } from "../store/types"
  import { NUser } from "../store/types"
- import { LOGIN_USER } from "./actionTypes";
  import { ADD_USER } from "./actionTypes";
  //There will be functionality here that use or change our User state object
  
@@ -19,15 +17,15 @@
      email: string
  }
  
- 
+ console.log("got here")
  //newuser functionality
  export const createUser = (createCreds:CreateUser) => async (dispatch:any) => {
- 
+    console.log("got here")
      //create an empty object of type IUser - this will get filled on successful login
      let loggedInUser: NUser;
  
      try {
- 
+        console.log("got here2")
          //send my HTTP request with axios, and put it into a variable we can use
          const response = await axios.post('http://localhost:5000/createuser', createCreds);
  
@@ -36,7 +34,6 @@
              console.log(response)
              //populate our loggedInUser variable
              loggedInUser = {
-                 id: response.data.id,
                  username: response.data.username,
                  password: response.data.password,
                  firstname: response.data.firstname,

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import { createUser } from "../../actions/NewUserAction"
 
 import "./CreateUser.css"
 
@@ -16,7 +17,7 @@ export const CreateUser: React.FC<any> = () => {
     let [username, setUsername] = useState('');
     let [password, setPassword] = useState('');
     let [firstname, setFirstName] = useState ('');
-    let [lastname, setLastname] = useState ('');
+    let [lastname, setLastName] = useState ('');
     let [email, setEmail] = useState ('');
     //we'll use this object to switch components whenever appropriate
     //this is what lets us navigate through the application through button clicks, etc.
@@ -29,14 +30,16 @@ export const CreateUser: React.FC<any> = () => {
         if(e.target.name === "username"){ //if the input is name=username...
             setUsername(e.target.value) //set username to be the value that was inserted
             console.log(username)
-        } else if (e.target.name == "password"){
+        } else if (e.target.name === "password"){
             setPassword(e.target.value)
-        } else if (e.target.name == "firstname"){
+            console.log(password)
+        } else if (e.target.name === "firstname"){
             setFirstName(e.target.value)
-        } else if (e.target.name == "lastname"){
-            setLastname(e.target.value)
+        } else if (e.target.name === "lastname"){
+            setLastName(e.target.value)
         }else {
             setEmail(e.target.value)
+            console.log(email)
         }
     }
 

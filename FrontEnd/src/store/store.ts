@@ -12,7 +12,6 @@ const initialState:AppState = {
         password:""
     },
     nUser : {
-        id:0,
         username:"",
         password:"",
         firstname:"",

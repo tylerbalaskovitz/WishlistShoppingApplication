@@ -8,7 +8,7 @@ export interface IUser {
 }
 export interface NUser {
    // ; May need to be deleted
-   id: number;
+   
    username: string;
     password: string;
     firstname: string;
