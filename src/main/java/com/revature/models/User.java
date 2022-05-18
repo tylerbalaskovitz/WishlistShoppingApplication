@@ -32,10 +32,10 @@ public class User {
 	private String lastName;
 	@Column
 	private String userEmail;
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name= "wishlist_id")
-	private Wishlist wish;
-	
+//	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//	@JoinColumn(name= "wishlist_id")
+//	private Wishlist wish;
+//	
 	public User() {
 		super();
 	}
@@ -59,17 +59,17 @@ public class User {
 		this.userEmail = userEmail;
 	}
 
-	public User(int id, String username, String password, String firstName, String lastName, String userEmail,
-			Wishlist wish) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.userEmail = userEmail;
-		this.wish = wish;
-	}
+//	public User(int id, String username, String password, String firstName, String lastName, String userEmail,
+//			Wishlist wish) {
+//		super();
+//		this.id = id;
+//		this.username = username;
+//		this.password = password;
+//		this.firstName = firstName;
+//		this.lastName = lastName;
+//		this.userEmail = userEmail;
+//		this.wish = wish;
+//	}
 
 	public int getId() {
 		return id;
@@ -119,19 +119,19 @@ public class User {
 		this.userEmail = userEmail;
 	}
 
-	public Wishlist getWish() {
-		return wish;
-	}
+//	public Wishlist getWish() {
+//		return wish;
+//	}
+//
+//	public void setWish(Wishlist wish) {
+//		this.wish = wish;
+//	}
 
-	public void setWish(Wishlist wish) {
-		this.wish = wish;
-	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", userEmail=" + userEmail + ", wish=" + wish + "]";
-	}
-	
+//	@Override
+//	public String toString() {
+//		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
+//				+ ", lastName=" + lastName + ", userEmail=" + userEmail + ", wish=" + wish + "]";
+//	}
+//	
 	
 }
