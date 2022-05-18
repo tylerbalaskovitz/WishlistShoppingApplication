@@ -18,10 +18,12 @@ export const Products: React.FC<any> = () => {
         }).then(res=> {
             console.log();
             setData(res.data)
+            //the setState setData is setting the state of res being put into the function and the data grabbed from the axios call of the url using the GET method.
+
 
         }).catch(e=>console.log(e))
         .finally(()=> setLoading(false));
-
+        //catching if an error appears via logging the error e, and then loading will be set to false and the url will NOT be grabbed.
 
     },[])
 
