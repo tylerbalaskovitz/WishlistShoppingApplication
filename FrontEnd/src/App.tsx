@@ -5,6 +5,8 @@ import './App.css';
 import { Home } from './components/Home/Home';
 import { Login } from './components/Login/Login';
 import { CreateUser } from './components/CreateUser/CreateUser';
+import { Products } from './components/Products/Products';
+
 
 function App() {
   return (
@@ -18,6 +20,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/createuser" element={<CreateUser/>}/>
+        </Routes>
+        <Routes>
+          <Route path="/Products" element={<Products/>}/>
         </Routes>
       </Router>
     </div>

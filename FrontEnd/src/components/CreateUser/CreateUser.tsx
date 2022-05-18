@@ -11,7 +11,7 @@ export const CreateUser: React.FC<any> = () => {
 
     //we need this object to actually dispatch data to our store
     const dispatch = useDispatch();
-
+    const newUserCredential = handleChange();
     //useState hooks to declare a state object, a mutator (which changed state), and a default value
     let [username, setUsername] = useState('');
     let [password, setPassword] = useState('');
@@ -44,7 +44,7 @@ export const CreateUser: React.FC<any> = () => {
     //sending the data, aka dispatching the data
     const createUser = async () => {
         await dispatch(
-            createUser({username, password, firstname,lastname, email}) as any
+            ({newUserCredential}) as any
             //these are the states that were changed with handleChange
             //we need "as any" to make it so that the return type can be any type
         )

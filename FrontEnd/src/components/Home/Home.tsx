@@ -11,10 +11,16 @@ export const Home: React.FC<any> = () => {
 
 
     return(
+
+        <>
         <div className="home-page">
             <div className="home-container">
                <h3> HOME</h3>
             </div>
         </div>
+       
+
+       
+        </>
     );
 }
