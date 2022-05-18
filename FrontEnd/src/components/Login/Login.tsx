@@ -47,7 +47,7 @@ export const Login: React.FC<any> = () => {
     //based on whether the user successfully logged in, change the page or do nothing
     useEffect(() => {
         if(appState.user.id > 0){
-            navigate("/home"); //thanks to Routing in the App.tsx, this will switch the component.
+            navigate("/Products"); //thanks to Routing in the App.tsx, this will switch the component.
         }
     }, [appState])
 

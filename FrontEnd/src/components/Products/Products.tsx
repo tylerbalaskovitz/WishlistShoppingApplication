@@ -6,7 +6,7 @@ import axios from 'axios'
 export const Products: React.FC<any> = () => {
 
     const [loading, setLoading] = useState(false);
-    const [data, setData] = useState ([]);
+    const [data, setData] = useState<any[]>([])
 
     useEffect(() => {
         setLoading(true);
@@ -43,7 +43,7 @@ export const Products: React.FC<any> = () => {
             <div className="card-description">
             <h6>{product.title}</h6>
             <h6>{`Price: ${product.price}`}</h6>
-            <h6>{`Category: ${product.categroy}`}</h6>
+            <h6>{`Category: ${product.category}`}</h6>
             
             </div>
             </div>
