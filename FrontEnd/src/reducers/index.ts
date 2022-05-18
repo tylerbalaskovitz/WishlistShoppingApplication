@@ -3,10 +3,13 @@
 
 import { combineReducers } from "redux";
 
+import { NewUserReducer } from "./NewUserReducer";
+
 import { UserReducer } from "./UserReducer";
 
 export default combineReducers({
     user:UserReducer,
+    nUser:NewUserReducer
 
 })
 
