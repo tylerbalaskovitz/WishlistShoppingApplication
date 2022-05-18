@@ -2,10 +2,13 @@ import React, {useState, useEffect} from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import axios from 'axios'
+import "./Products.css"
 
 export const Products: React.FC<any> = () => {
 
     const [loading, setLoading] = useState(false);
+    //When constructing set data, and doing a useState for data coming in an array
+    //make sure that the useState is ALSO in an array with ANY type of data to go into it.
     const [data, setData] = useState<any[]>([])
 
     useEffect(() => {
@@ -31,8 +34,14 @@ export const Products: React.FC<any> = () => {
 
 
     return (
-        <div className="products-container">Products
-        
+       <>
+       <div className = "background">
+       <div className="Navigation bar">
+       <button> Go To wishlist</button><button>Log Out</button>
+       </div>
+        <div className = "banner-image"></div>
+       <div className="products-container">
+
         
         
         
@@ -44,15 +53,14 @@ export const Products: React.FC<any> = () => {
             <h6>{product.title}</h6>
             <h6>{`Price: ${product.price}`}</h6>
             <h6>{`Category: ${product.category}`}</h6>
-            
+            <button>Add to Wishlist</button>
             </div>
             </div>
         ))}
         </div> 
-
+        </div>
     
-
-
+            </>
     );
 };
 
