@@ -87,9 +87,10 @@ export const CreateUser: React.FC<any> = (post:any) => {
                 <div className="input-container">
                     <input type="text" name="email" placeholder="email" onChange={handleChange}/>
                 </div>
-            
-                <button className="createUSerbutton" onClick={newUser}>Create New User</button> 
 
+            {/* this button when clicked executes the newUser function above which executes the await dispatch which executes the createUser() function grabbing the five values needed for creating a new user  */}
+                <button className="createUSerbutton" onClick={newUser}>Create New User</button> 
+            
                 </div>  
 
         </div>
