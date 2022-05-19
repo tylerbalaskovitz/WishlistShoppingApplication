@@ -5,7 +5,7 @@ import { createUser } from "../../actions/NewUserAction"
 
 import "./CreateUser.css"
 
-export const CreateUser: React.FC<any> = () => {
+export const CreateUser: React.FC<any> = (post:any) => {
 
     //this is how we access the state in the store. The data in the universal data file.
     const appState = useSelector<any, any>((state) => state);
@@ -45,12 +45,17 @@ export const CreateUser: React.FC<any> = () => {
 
     //login functionality. we take the state objects and send them to the creatueUser Action
     //sending the data, aka dispatching the data
-    const createUser = async () => {
+    console.log("outside createuser")
+    const newUser = async () => {
+        console.log("inside createuser")
         await dispatch(
-            ({username, password, firstname, lastname, email}) as any
+            //we were calling nothing here so no action was taken,
+            //even though dispatch expected one
+            createUser({username, password, firstname, lastname, email}) as any
             //these are the states that were changed with handleChange
             //we need "as any" to make it so that the return type can be any type
         )
+        console.log("after dispatch")
     }
 
     //useEffect hook that runs when appState changes
@@ -83,7 +88,7 @@ export const CreateUser: React.FC<any> = () => {
                     <input type="text" name="email" placeholder="email" onChange={handleChange}/>
                 </div>
             
-                <button className="createUSerbutton" onClick={createUser}>Create New User</button> 
+                <button className="createUSerbutton" onClick={newUser}>Create New User</button> 
 
                 </div>  
 
