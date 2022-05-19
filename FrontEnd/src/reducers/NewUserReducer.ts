@@ -7,9 +7,9 @@ let initialState:NUser = {
 
     username:"",
     password:"",
-    firstname:"",
-    lastname:"",
-    email:""
+    firstName:"",
+    lastName:"",
+    userEmail:""
 } 
 
 //this is an object that will determine what actions to take

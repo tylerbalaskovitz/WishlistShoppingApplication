@@ -16,9 +16,9 @@ export const CreateUser: React.FC<any> = (post:any) => {
     //useState hooks to declare a state object, a mutator (which changed state), and a default value
     let [username, setUsername] = useState('');
     let [password, setPassword] = useState('');
-    let [firstname, setFirstName] = useState ('');
-    let [lastname, setLastName] = useState ('');
-    let [email, setEmail] = useState ('');
+    let [firstName, setFirstName] = useState ('');
+    let [lastName, setLastName] = useState ('');
+    let [userEmail, setEmail] = useState ('');
     //we'll use this object to switch components whenever appropriate
     //this is what lets us navigate through the application through button clicks, etc.
     const navigate = useNavigate();
@@ -29,20 +29,18 @@ export const CreateUser: React.FC<any> = (post:any) => {
     const handleChange = (e:any) => {
         if(e.target.name === "username"){ //if the input is name=username...
             setUsername(e.target.value) //set username to be the value that was inserted
-            console.log(username)
         } else if (e.target.name === "password"){
             setPassword(e.target.value)
-            console.log(password)
         } else if (e.target.name === "firstname"){
             setFirstName(e.target.value)
         } else if (e.target.name === "lastname"){
             setLastName(e.target.value)
         }else {
             setEmail(e.target.value)
-            console.log(email)
         }
     }
 
+    //below is our dispatcher where the name of the columns MUST match what is in the database.
     //login functionality. we take the state objects and send them to the creatueUser Action
     //sending the data, aka dispatching the data
     console.log("outside createuser")
@@ -51,7 +49,7 @@ export const CreateUser: React.FC<any> = (post:any) => {
         await dispatch(
             //we were calling nothing here so no action was taken,
             //even though dispatch expected one
-            createUser({username, password, firstname, lastname, email}) as any
+            createUser({username, password, firstName, lastName, userEmail}) as any
             //these are the states that were changed with handleChange
             //we need "as any" to make it so that the return type can be any type
         )

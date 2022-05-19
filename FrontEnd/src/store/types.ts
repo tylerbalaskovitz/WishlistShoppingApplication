@@ -11,9 +11,9 @@ export interface NUser {
    
    username: string;
     password: string;
-    firstname: string;
-    lastname: string;
-    email: string;
+    firstName: string;
+    lastName: string;
+    userEmail: string;
 
 }
 

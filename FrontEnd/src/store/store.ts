@@ -14,9 +14,9 @@ const initialState:AppState = {
     nUser : {
         username:"",
         password:"",
-        firstname:"",
-        lastname:"",
-        email:""
+        firstName:"",
+        lastName:"",
+        userEmail:""
     } 
     
 

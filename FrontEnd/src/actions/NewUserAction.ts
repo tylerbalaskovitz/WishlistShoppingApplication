@@ -12,9 +12,9 @@
  interface CreateUser {
      username: string,
      password: string,
-     firstname: string,
-     lastname: string,
-     email: string
+     firstName: string,
+     lastName: string,
+     userEmail: string
  }
  
  console.log("got here")
@@ -36,9 +36,9 @@
              loggedInUser = {
                  username: response.data.username,
                  password: response.data.password,
-                 firstname: response.data.firstname,
-                 lastname: response.data.lastname,
-                 email: response.data.email
+                 firstName: response.data.firstname,
+                 lastName: response.data.lastname,
+                 userEmail: response.data.email
              }
  
              //now we actually DISPATCH (send) this data to the store
