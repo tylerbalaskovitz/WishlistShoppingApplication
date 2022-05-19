@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import { addNewItem} from "../../actions/NewItem"
 import axios from 'axios'
 import "./Products.css"
 
@@ -30,7 +31,14 @@ export const Products: React.FC<any> = () => {
 
     },[])
 
-
+    const addItem = async () => {
+        await dispatch(
+            //addNewItem needs to be added to actions and then imported 
+            addNewItem({id, title, price, description, category, image}) as any
+            //these are the states that were changed with handleChange
+            //we need "as any" to make it so that the return type can be any type
+        )
+    }
 
 
     return (
@@ -53,7 +61,7 @@ export const Products: React.FC<any> = () => {
             <h6>{product.title}</h6>
             <h6>{`Price: ${product.price}`}</h6>
             <h6>{`Category: ${product.category}`}</h6>
-            <button>Add to Wishlist</button>
+            <button className = "addToWishList" onClick={addItem}>Add to Wishlist</button>
             </div>
             </div>
         ))}

@@ -7,9 +7,12 @@ import { NewUserReducer } from "./NewUserReducer";
 
 import { UserReducer } from "./UserReducer";
 
+import { NewItemReducer } from "./NewItemReducer";
+
 export default combineReducers({
     user:UserReducer,
-    nUser:NewUserReducer
+    nUser:NewUserReducer,
+    nItem:NewItemReducer
 
 })
 

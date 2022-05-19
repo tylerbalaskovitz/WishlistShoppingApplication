@@ -17,6 +17,16 @@ export interface NUser {
 
 }
 
+export interface nItem {
+    
+    id: string;
+    title: string;
+    price: string;
+    description: string;
+    category: string;
+    image: string;
+ 
+ }
 //AppState object that will store one of each interface.
 //note the type keyword... it's like calling something an object in java
 export type AppState = {

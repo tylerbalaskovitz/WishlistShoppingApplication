@@ -17,6 +17,14 @@ const initialState:AppState = {
         firstName:"",
         lastName:"",
         userEmail:""
+    },
+    nItem : {
+        id: "",
+        title: "",
+        price: "",
+        description: "",
+        category: "",
+        image: ""
     } 
     
 
