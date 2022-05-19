@@ -34,7 +34,7 @@ export const Products: React.FC<any> = () => {
     },[])
 
 
-    const addItem = async (product) => {
+    const addItem = async () => {
         await dispatch(
             //addNewItem needs to be added to actions and then imported 
             addNewItem(product) as any
@@ -51,12 +51,10 @@ export const Products: React.FC<any> = () => {
     //when user updates the values whichever is being updated changes
     //this is how we can send a username/password object to the CreateUser Action
     
-    const gatherItemData (product) {
+   let setProductValues = function(productId: any, productImage: any, productTitle: any, productPrice: any, productCategory: any){
        
-   
-
-    }
-
+    
+   }
   
 
 
@@ -81,7 +79,7 @@ export const Products: React.FC<any> = () => {
             <h6>{product.title}</h6>
             <h6>{`Price: ${product.price}`}</h6>
             <h6>{`Category: ${product.category}`}</h6>
-            <button className = "addToWishList" onClick={() => gatherItemData(product)}>Add to Wishlist</button>
+            <button className = "addToWishList" onClick={() => setProductValues(product.id, product.image, product.title, product.price, product.category)}>Add to Wishlist</button>
             
             </div>
             </div>
