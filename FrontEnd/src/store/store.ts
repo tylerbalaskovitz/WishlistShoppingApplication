@@ -25,7 +25,7 @@ const initialState:AppState = {
         description: "",
         category: "",
         image: ""
-    } 
+    }
     
 
 

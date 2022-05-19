@@ -1,5 +1,5 @@
 import axios from "axios";
- import { NUser } from "../store/types"
+ import { nItem } from "../store/types"
  import { ADD_ITEM } from "./actionTypes";
 
  interface addItem {

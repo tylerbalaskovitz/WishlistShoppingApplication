@@ -31,14 +31,66 @@ export const Products: React.FC<any> = () => {
 
     },[])
 
-    const addItem = async () => {
-        await dispatch(
-            //addNewItem needs to be added to actions and then imported 
-            addNewItem({id, title, price, description, category, image}) as any
-            //these are the states that were changed with handleChange
-            //we need "as any" to make it so that the return type can be any type
-        )
+
+    // const addItem = async () => {
+    //     await dispatch(
+    //         //addNewItem needs to be added to actions and then imported 
+    //         addNewItem({id, title, price, description, category, image}) as any
+    //         //these are the states that were changed with handleChange
+    //         //we need "as any" to make it so that the return type can be any type
+    //     )
+    // }
+
+
+    //useState hooks to declare a state object, a mutator (which changed state), and a default value
+    let [id, setID] = useState('');
+    let [title, setTitle] = useState('');
+    let [price, setPrice] = useState ('');
+    let [description, setDescription] = useState ('');
+    let [category, setCategory] = useState ('');
+    let [image, setImage] = useState ('');
+    //we'll use this object to switch components whenever appropriate
+    //this is what lets us navigate through the application through button clicks, etc.
+    const navigate = useNavigate();
+
+    //when user updates the username/password field, this function is called
+    //when user updates the values whichever is being updated changes
+    //this is how we can send a username/password object to the CreateUser Action
+    
+    const gatherItemData = (e:any) => {
+        // if(e.target.name === "username"){ //if the input is name=username...
+        //     setID(e.target.value) //set username to be the value that was inserted
+        // } else if (e.target.name === "password"){
+        //     setTitle(e.target.value)
+        // } else if (e.target.name === "firstname"){
+        //     setPrice(e.target.value)
+        // } else if (e.target.name === "lastname"){
+        //     setDescription(e.target.value)}
+        // else if (e.target.name === "lastname"){
+        //         setCategory(e.target.value)
+        // }else {
+        //         setImage(e.target.value)
+        // }
+
+      
+
     }
+
+    useEffect(() => {        
+
+        let finalSizeArray = data.map(option => {
+            let sizeInfo = {}
+
+            sizeInfo.key = option.id
+            sizeInfo.text = option.description
+            sizeInfo.value = option.price
+            
+
+            return sizeInfo
+        })
+
+        setSizes(finalSizeArray)
+    }, [])
 
 
     return (
@@ -55,16 +107,18 @@ export const Products: React.FC<any> = () => {
         
         
         {data.map((product)=> (
+            
             <div key={product.id} className="card">
             <div><img src={product.image} alt="#"/></div> 
             <div className="card-description">
             <h6>{product.title}</h6>
             <h6>{`Price: ${product.price}`}</h6>
             <h6>{`Category: ${product.category}`}</h6>
-            <button className = "addToWishList" onClick={addItem}>Add to Wishlist</button>
+            <button className = "addToWishList" onClick={gatherItemData}>Add to Wishlist</button>
+            
             </div>
             </div>
-        ))}
+        ))} 
         </div> 
         </div>
     

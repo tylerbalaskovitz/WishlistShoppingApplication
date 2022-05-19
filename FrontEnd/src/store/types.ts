@@ -32,6 +32,7 @@ export interface nItem {
 export type AppState = {
     user: IUser, //one empty user object
     nUser: NUser,
+    nItem: nItem,
 }
 
 //separating values by commas here, because it's an object not an interface
