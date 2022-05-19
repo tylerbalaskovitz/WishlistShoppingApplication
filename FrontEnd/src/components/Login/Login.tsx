@@ -62,10 +62,10 @@ export const Login: React.FC<any> = () => {
             <div className="text-container">
                
                 <div className="input-container">
-                    <input type="text" name="username" placeholder="username" onChange={handleChange}/>
+                    <input type="text" name="username" placeholder="Username" onChange={handleChange}/>
                 </div>
                 <div className="input-container">
-                    <input type="password" name="password" placeholder="password" onChange={handleChange}/>
+                    <input type="password" name="password" placeholder="Password" onChange={handleChange}/>
                 </div>
 
                 <div className="login">
@@ -74,9 +74,13 @@ export const Login: React.FC<any> = () => {
 
                 </div>  
 
-
+             </div>
+          
+                <div className="disclaimer">
+                <p> ©WishList 2022 All Rights Reserve - Team1 from Revature</p>
+                </div>
         </div>
-       
-       </div>
+
+        
     )
 }
