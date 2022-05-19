@@ -3,6 +3,7 @@ package com.revature;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import com.revature.controllers.ProductController;
 import com.revature.controllers.UserController;
 import com.revature.daos.UserDAO;
 import com.revature.models.User;
@@ -13,6 +14,7 @@ public class Launcher {
 
 	public static void main(String[] args) {
 		UserController uc = new UserController();
+		ProductController pc = new ProductController();
 		Javalin app = Javalin.create(
 				config ->{
 					config.enableCorsForAllOrigins();
@@ -24,7 +26,7 @@ public class Launcher {
 		//This HTTP request is used to login using the User Controller's login handler
 		app.post("/login", uc.loginHandler);
 		
-		
+		app.post("/addnewitem", pc.addProductHandler);
 		//This HTTP request is used to create a new user using the newUserHandler in the User Controller 
 		app.post("/createuser", uc.newUserHandler);
 		

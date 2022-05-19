@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { addNewItem} from "../../actions/NewItem"
 import axios from 'axios'
 import "./Products.css"
+import { nItem } from '../../store/types'
 
 export const Products: React.FC<any> = () => {
     //instantiating a new dispatch object so we can send data to the database.
@@ -14,6 +15,15 @@ export const Products: React.FC<any> = () => {
     //make sure that the useState is ALSO in an array with ANY type of data to go into it.
     const [data, setData] = useState<any[]>([])
 
+    let newItem: nItem = {
+        id: "",
+        title: "",
+        price: "",
+        description: "",
+        category: "",
+        image: "",
+     }
+    
     useEffect(() => {
         setLoading(true);
         axios({
@@ -34,15 +44,6 @@ export const Products: React.FC<any> = () => {
     },[])
 
 
-    const addItem = async () => {
-        await dispatch(
-            //addNewItem needs to be added to actions and then imported 
-            addNewItem(product) as any
-            //these are the states that were changed with handleChange
-            //we need "as any" to make it so that the return type can be any type
-        )
-    }
-
 
     
     const navigate = useNavigate();
@@ -51,12 +52,22 @@ export const Products: React.FC<any> = () => {
     //when user updates the values whichever is being updated changes
     //this is how we can send a username/password object to the CreateUser Action
     
-   let setProductValues = function(productId: any, productImage: any, productTitle: any, productPrice: any, productCategory: any){
-       
-    
-   }
-  
+    let setProductValues =async (productId: any, productImage: any, productTitle: any, productPrice: any, productCategory: any, productdescription: any) => {
+        newItem = {
+            id: productId,
+            title: productTitle,
+            price: productPrice,
+            description: productdescription,
+            category: productCategory,
+            image: productImage
+        }
+    await dispatch(
 
+        addNewItem(newItem) as any
+        //these are the states that were changed with handleChange
+        //we need "as any" to make it so that the return type can be any type
+    )
+   }
 
     return (
        <>
@@ -67,10 +78,6 @@ export const Products: React.FC<any> = () => {
         <div className = "banner-image"></div>
        <div className="products-container">
 
-        
-        
-        
-        
         {data.map((product)=> (
             
             <div key={product.id} className="card">
@@ -79,7 +86,7 @@ export const Products: React.FC<any> = () => {
             <h6>{product.title}</h6>
             <h6>{`Price: ${product.price}`}</h6>
             <h6>{`Category: ${product.category}`}</h6>
-            <button className = "addToWishList" onClick={() => setProductValues(product.id, product.image, product.title, product.price, product.category)}>Add to Wishlist</button>
+            <button className = "addToWishList" onClick={() => setProductValues(product.id, product.image, product.title, product.price, product.category, product.description)}>Add to Wishlist</button>
             
             </div>
             </div>
