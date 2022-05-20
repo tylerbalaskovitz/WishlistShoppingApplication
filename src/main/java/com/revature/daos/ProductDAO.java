@@ -6,7 +6,6 @@ import javax.persistence.Query;
 
 import org.hibernate.Session;
 
-import com.revature.models.Movie;
 import com.revature.models.Wishlist;
 import com.revature.utils.HibernateUtil;
 
