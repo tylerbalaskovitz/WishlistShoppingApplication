@@ -8,12 +8,13 @@ import { NewUserReducer } from "./NewUserReducer";
 import { UserReducer } from "./UserReducer";
 
 import { NewItemReducer } from "./NewItemReducer";
+import { DeleteItemReducer } from "./DeleteItemReducer";
 
 export default combineReducers({
     user:UserReducer,
     nUser:NewUserReducer,
-    nItem:NewItemReducer
-
+    nItem:NewItemReducer,
+    dItem:DeleteItemReducer
 })
 
 //this isn't a necessary step for this all to work, but it'll be great for sanity

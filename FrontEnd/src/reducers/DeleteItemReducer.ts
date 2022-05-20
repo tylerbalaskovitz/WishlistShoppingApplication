@@ -15,7 +15,7 @@ type Action = {type:string, payload:any};
 
 //the reducer will take in an IUser object, which is meant to update intialState^
 //it will also take in an Action that contains what action to take, and what data it has (payload)
-export const NewItemReducer = (state:dItem = initialState, action: Action) => {
+export const DeleteItemReducer = (state:dItem = initialState, action: Action) => {
     //switch based on the type in the Action object
     //look at loginUser in the UserACtions to see where this is coming from
     switch(action.type){

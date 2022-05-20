@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { addNewItem} from "../../actions/NewItem"
 import axios from 'axios'
 import "./Products.css"
-import { nItem } from '../../store/types'
+import { dItem } from '../../store/types'
 import { AppState } from '../../store/types'
 import {viewWishList} from "../../actions/ViewWishlistAction"
 
@@ -17,13 +17,8 @@ export const ViewWishlist: React.FC<any> = () => {
     //make sure that the useState is ALSO in an array with ANY type of data to go into it.
     const [data, setData] = useState<any[]>([])
 
-    let newItem: nItem = {
+    let deleteItem: dItem = {
         id: "",
-        title: "",
-        price: "",
-        description: "",
-        category: "",
-        image: "",
      }
     
     useEffect(() => {
@@ -70,12 +65,10 @@ export const ViewWishlist: React.FC<any> = () => {
         //we need "as any" to make it so that the return type can be any type
     )
    }
-
 //    let logout{
 //     AppState.iUser.id = 0,
 //     navigate("/login")
 //    }
-
    
     return (
        <>
@@ -94,7 +87,7 @@ export const ViewWishlist: React.FC<any> = () => {
             <h6>{product.title}</h6>
             <h6>{`Price: ${product.price}`}</h6>
             <h6>{`Category: ${product.category}`}</h6>
-            <button className = "deleteButton" onClick={() => setProductValues(product.id)}>Remove From Wishlist</button>
+            <button className = "deleteButton" onClick={() => delete(product.id)}>Remove From Wishlist</button>
             
             </div>
             </div>
