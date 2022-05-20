@@ -1,7 +1,7 @@
 import axios from "axios";
  import { nItem } from "../store/types"
  import { ADD_ITEM } from "./actionTypes";
-
+import{ appState}  from "../../components/Login/Login"
  interface addItem {
     id: string,
     title: string,
@@ -25,6 +25,7 @@ export const addNewItem = (addItemCreds:addItem) => async (dispatch:any) => {
             console.log(response)
             //populate our loggedInUser variable
             addItemCreds = {
+                // user_id: appState.user.id,
                 id: response.data.id,
                 title: response.data.title,
                 price: response.data.price,

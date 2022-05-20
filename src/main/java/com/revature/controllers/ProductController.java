@@ -3,6 +3,7 @@ package com.revature.controllers;
 import com.google.gson.Gson;
 import com.revature.models.User;
 import com.revature.models.Wishlist;
+import com.revature.services.ProductService;
 
 import io.javalin.http.Handler;
 

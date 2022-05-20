@@ -35,7 +35,11 @@ public class Wishlist {
 		private String category;
 		@Column
 		private String image;
-		
+		@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+		@JoinColumn(name = "id") //THIS is how you establish FK/PK relationships
+		//the name attribute must be equal to the name of the PK in Directors in the DB. (in this case, director_id)
+		//IMPORTANT NOTE: @Column will break this, because @JoinColumn already makes it a column
+		public User userId;
 		
 		
 		//there still needs to be code for referencing the user table via a FK

@@ -1,5 +1,7 @@
 package com.revature.models;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -32,10 +35,9 @@ public class User {
 	private String lastName;
 	@Column
 	private String userEmail;
-//	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//	@JoinColumn(name= "wishlist_id")
-//	private Wishlist wish;
-//	
+	@OneToMany(mappedBy="wishlist_fk", fetch=FetchType.EAGER)
+	private List<Wishlist> userWishlist;
+	
 	public User() {
 		super();
 	}
