@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.revature.models.ProductDTO;
 import com.revature.models.User;
 import com.revature.models.Wishlist;
 import com.revature.services.ProductService;
@@ -17,12 +18,13 @@ public class ProductController {
 	public Handler addProductHandler = (ctx) ->{
 		// the body String is created using the Handler's configuration's body
 				
+		ProductDTO pDTO = new ProductDTO();
 		String body = ctx.body();
 //		ctx.result(ctx.formParam("id")) ;
 		Gson gson = new Gson();
-		Wishlist newWishlist = gson.fromJson(body, Wishlist.class);
-				
-		ps.addProductService(newWishlist);
+		ProductDTO newItem = gson.fromJson(body, ProductDTO.class);
+		
+		ps.addProductService(newItem);
 		ctx.status(202);
 		
 	};

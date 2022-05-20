@@ -54,6 +54,13 @@ public class UserDAO {
 //		  I'd imagine this is a good template for user login
 //		  "FROM User u WHERE u.username = ?0 etc...."
 //		 */
+
+	public User getUserbyId(String user_id) {
+		Session ses = HibernateUtil.getSession();
+		User currentUser = ses.get(User.class, user_id);
+		HibernateUtil.closeSession();
+		return currentUser;
+	}
 		
 	}
 	

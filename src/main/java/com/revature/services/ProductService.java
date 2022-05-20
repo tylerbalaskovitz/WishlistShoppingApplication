@@ -4,15 +4,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.daos.ProductDAO;
+import com.revature.daos.UserDAO;
+import com.revature.models.ProductDTO;
+import com.revature.models.User;
 import com.revature.models.Wishlist;
 
 public class ProductService {
 	//the product down
 	ProductDAO pDAO = new ProductDAO();
+	UserDAO uDAO = new UserDAO();
 	
+	public void addProductService(ProductDTO pDTO) {
+		User currentUser = uDAO.getUserbyId(pDTO.user_id);
+		Wishlist currentWishlist = new Wishlist(
+				Integer.parseInt(pDTO.id),
+				pDTO.title,
+				pDTO.price,
+				pDTO.description,
+				pDTO.category,
+				pDTO.image
+				);
 	
-	public void addProductService(Wishlist w) {
-		pDAO.addProductToUser(w);
+		pDAO.addProductToUser(currentUser, currentWishlist);
 		
 	}
 	

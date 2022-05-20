@@ -8,7 +8,7 @@
  
  //interface that models the user's login credentials, we'll send in our POST request
  //second interface for new users
- 
+ const appState = useSelector<any, any>((state) => state);
 
  
  console.log("got here")

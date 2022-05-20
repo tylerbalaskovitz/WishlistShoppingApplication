@@ -7,17 +7,21 @@ import javax.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.revature.models.User;
 import com.revature.models.Wishlist;
 import com.revature.utils.HibernateUtil;
 
 public class ProductDAO {
 public int id;
 
-	public void addProductToUser(Wishlist w) {
+	public void addProductToUser(User currentUser, Wishlist w) {
 			//we are starting the session via hibernate
 			Session ses = HibernateUtil.getSession();
 			//we use the session object that has been instantiate with the save method and the object w. 
-			ses.save(w);
+			Query q = ses.createQuery("Insert into Wishlist w "
+					+ "SELECT " + w.getId() + ", " + w.getCategory() + " ," + w.getDescription() + " ," + w.getImage() + " ," + w.getPrice() + " ," + w.getTitle()
+					+ " WHERE w.user_fk.id = ?0");
+			q.setParameter(0, currentUser.getId());
 			//the closeSession method is used with the hibernate utility to close the session. 
 			HibernateUtil.closeSession();
 		}

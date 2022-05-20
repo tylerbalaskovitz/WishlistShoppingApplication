@@ -3,8 +3,10 @@ import axios from "axios";
  import { ADD_ITEM } from "./actionTypes";
 import{ Login}  from "../components/Login/Login";
 import { AppState } from "../store/types";
- interface addItem {
+import { useSelector } from "react-redux";
 
+ interface addItem {
+    user_id: string,
     id: string,
     title: string,
     price: string,
@@ -14,8 +16,7 @@ import { AppState } from "../store/types";
     
 }
 
-
-
+const appState = useSelector<any, any>((state) => state);
 //newuser functionality
 export const addNewItem = (addItemCreds:addItem) => async (dispatch:any) => {
     //create an empty object of type IUser - this will get filled on successful login
@@ -30,8 +31,8 @@ export const addNewItem = (addItemCreds:addItem) => async (dispatch:any) => {
             console.log(response)
             //populate our loggedInUser variable
             addItemCreds = {
-                // user_id: appState.user.id,
                 
+                user_id: appState.user.id,
                 id: response.data.id,
                 title: response.data.title,
                 price: response.data.price,
