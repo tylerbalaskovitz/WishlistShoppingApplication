@@ -38,7 +38,7 @@ public class Wishlist {
 		@Column
 		private String image;
 		@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-		@JoinColumn(name = "id") //THIS is how you establish FK/PK relationships
+		@JoinColumn(name = "user_id") //THIS is how you establish FK/PK relationships
 		public User user;
 		//the public user is referring to the class/model that hibernate will use to call and put data into the database.
 		

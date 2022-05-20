@@ -13,16 +13,12 @@ public class ProductDAO {
 public int id;
 
 	public void addProductToUser(Wishlist w) {
-		
 			//we are starting the session via hibernate
 			Session ses = HibernateUtil.getSession();
-			
 			//we use the session object that has been instantiate with the save method and the object w. 
 			ses.save(w);
-			
 			//the closeSession method is used with the hibernate utility to close the session. 
 			HibernateUtil.closeSession();
-			
 		}
 		
 		
@@ -53,6 +49,14 @@ public List<Wishlist> getUserWishList(){
 		
 		return wishlist;
 		
+	}
+
+
+	
+	public void deleteItembyUser(Wishlist w) {
+		Session ses = HibernateUtil.getSession();
+		ses.delete(w);
+		HibernateUtil.closeSession();
 	}
 	
 	

@@ -18,14 +18,17 @@ public class ProductService {
 	
 		public List<Wishlist> getUserWishList(){
 		
-		//get the list of employees from the DAO
+		//get the list of wishlist from the DAO
 			List<Wishlist> userWishlist = pDAO.getUserWishList();
 		
 		
 		
-		//return that List of employees.
+		//return that List of wishlist.
 		return userWishlist;
 		
 	}
 	
+	public void deleteUserItem() {
+		pDAO.deleteItembyUser();
+	}
 }

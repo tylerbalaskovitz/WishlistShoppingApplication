@@ -36,4 +36,10 @@ public class ProductController {
 		
 	};
 	
+	public Handler deleteProductHandler = (ctx) -> {
+		String body = ctx.body();
+		Gson gson = new Gson();
+		ps.deleteUserItem();
+		ctx.status(202);
+	};
 }
