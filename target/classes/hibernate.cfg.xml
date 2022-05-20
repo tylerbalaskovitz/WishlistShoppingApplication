@@ -24,7 +24,7 @@
 		
 		<!-- We will map our classes here -->
 		<mapping class="com.revature.models.User"/>
-
+		<mapping class="com.revature.models.Wishlist"/>
  	
  	</session-factory>
  </hibernate-configuration>

@@ -39,7 +39,7 @@ public class Wishlist {
 		private String image;
 		@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
 		@JoinColumn(name = "user_id") //THIS is how you establish FK/PK relationships
-		public User user;
+		public User user_fk;//this is the name of the foreign key to be put inside of the database. It will become an int field in the database.
 		//the public user is referring to the class/model that hibernate will use to call and put data into the database.
 		
 		//the name attribute must be equal to the name of the PK in Directors in the DB. (in this case, director_id)
@@ -57,6 +57,8 @@ public class Wishlist {
 		
 
 
+
+		
 
 		
 
@@ -118,11 +120,7 @@ public class Wishlist {
 			this.image = image;
 		}
 
-		@Override
-		public String toString() {
-			return "Wishlist [id=" + id + ", title=" + title + ", price=" + price + ", description=" + description
-					+ ", category=" + category + ", image=" + image + ", user=" + user.getUserEmail() + "]";
-		}
+		
 
 
 
