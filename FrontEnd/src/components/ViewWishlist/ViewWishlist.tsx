@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { addNewItem} from "../../actions/NewItem"
+import { deleteItem} from "../../actions/DeleteAction"
 import axios from 'axios'
 import "./Products.css"
 import { dItem } from '../../store/types'
@@ -49,18 +49,12 @@ export const ViewWishlist: React.FC<any> = () => {
     //when user updates the values whichever is being updated changes
     //this is how we can send a username/password object to the CreateUser Action
     
-    let setProductValues =async (productId: any) => {
-        newItem = {
+    let deleteProduct =async (productId: any) => {
+        dItem = {
             id: productId,
-            title: productTitle,
-            price: productPrice,
-            description: productdescription,
-            category: productCategory,
-            image: productImage
         }
     await dispatch(
-
-        viewWishList(newItem) as any
+        deleteItem(item) as any
         //these are the states that were changed with handleChange
         //we need "as any" to make it so that the return type can be any type
     )
@@ -87,7 +81,7 @@ export const ViewWishlist: React.FC<any> = () => {
             <h6>{product.title}</h6>
             <h6>{`Price: ${product.price}`}</h6>
             <h6>{`Category: ${product.category}`}</h6>
-            <button className = "deleteButton" onClick={() => delete(product.id)}>Remove From Wishlist</button>
+            <button className = "deleteButton" onClick={() => deleteProduct(product.id)}>Remove From Wishlist</button>
             
             </div>
             </div>
