@@ -33,7 +33,7 @@ public class Launcher {
 		//This HTTP request is used to create a new user using the newUserHandler in the User Controller 
 		app.post("/createuser", uc.newUserHandler);
 		
-		app.delete("/deleteitem", pc.deleteProductHandler);
+		app.delete("/deleteitem/{id}", pc.deleteProductHandler);
 		
 		System.out.println("Hello, test for the GIT Pull and Pushes inconsistencies");
 		

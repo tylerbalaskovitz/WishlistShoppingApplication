@@ -38,8 +38,10 @@ public class ProductController {
 	
 	public Handler deleteProductHandler = (ctx) -> {
 		String body = ctx.body();
+		int user_id = Integer.parseInt(ctx.pathParam("id"));
 		Gson gson = new Gson();
-		ps.deleteUserItem();
+		Wishlist deleteWishlist = gson.fromJson(body, Wishlist.class);
+		ps.deleteUserItem(deleteWishlist, user_id);
 		ctx.status(202);
 	};
 }

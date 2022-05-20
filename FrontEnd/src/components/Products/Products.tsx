@@ -5,7 +5,7 @@ import { addNewItem} from "../../actions/NewItem"
 import axios from 'axios'
 import "./Products.css"
 import { nItem } from '../../store/types'
-import { AppState } from '../../store/types'
+
 
 export const Products: React.FC<any> = () => {
     //instantiating a new dispatch object so we can send data to the database.
@@ -80,7 +80,7 @@ export const Products: React.FC<any> = () => {
        <>
        <div className = "background">
        <div className="Navigation bar">
-       <button> Go To wishlist</button><button onClick={logout}>Log Out</button>
+       <button> Go To wishlist</button><button>Log Out</button>
        </div>
         <div className = "banner-image"></div>
        <div className="products-container">
