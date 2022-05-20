@@ -35,43 +35,44 @@ public class User {
 	private String lastName;
 	@Column
 	private String userEmail;
-	@OneToMany(mappedBy="wishlist_fk", fetch=FetchType.EAGER)
-	private List<Wishlist> userWishlist;
+	@OneToMany(mappedBy="id", fetch=FetchType.EAGER)
+	private List<Wishlist> user_id;
+
 	
 	public User() {
 		super();
 	}
 	
-	public User(int userId, String username, String password, String firstName, String lastName, String userEmail) {
-		super();
-		this.id = userId;
-		this.username = username;
-		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.userEmail = userEmail;
-	}
 
-	public User(String username, String password, String firstName, String lastName, String userEmail) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.userEmail = userEmail;
-	}
 
-//	public User(int id, String username, String password, String firstName, String lastName, String userEmail,
-//			Wishlist wish) {
-//		super();
-//		this.id = id;
-//		this.username = username;
-//		this.password = password;
-//		this.firstName = firstName;
-//		this.lastName = lastName;
-//		this.userEmail = userEmail;
-//		this.wish = wish;
-//	}
+public User(int id, String username, String password, String firstName, String lastName, String userEmail,
+		List<Wishlist> user_id) {
+	super();
+	this.id = id;
+	this.username = username;
+	this.password = password;
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.userEmail = userEmail;
+	this.user_id = user_id;
+}
+
+
+
+public User(String username, String password, String firstName, String lastName, String userEmail,
+		List<Wishlist> user_id) {
+	super();
+	this.username = username;
+	this.password = password;
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.userEmail = userEmail;
+	this.user_id = user_id;
+}
+
+
+
+
 
 	public int getId() {
 		return id;
@@ -119,6 +120,14 @@ public class User {
 
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", userEmail=" + userEmail + ", user_id=" + user_id + "]";
 	}
 
 //	public Wishlist getWish() {

@@ -23,6 +23,8 @@ public class Wishlist {
 		//@JoinColumn(name = "user.id")
 		//private int wishlist_id;
 		//for handling id of products in database
+		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)//makes pk serial
 		@Column
 		private int id;
 		@Column
@@ -35,12 +37,18 @@ public class Wishlist {
 		private String category;
 		@Column
 		private String image;
-		//(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-		//(name = "id") //THIS is how you establish FK/PK relationships
+		@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+		@JoinColumn(name = "id") //THIS is how you establish FK/PK relationships
+		public User user;
+		//the public user is referring to the class/model that hibernate will use to call and put data into the database.
+		
 		//the name attribute must be equal to the name of the PK in Directors in the DB. (in this case, director_id)
 		//IMPORTANT NOTE: @Column will break this, because @JoinColumn already makes it a column
 		//public User userId;
 		
+		 //THIS is how you establish FK/PK relationships
+		//the name attribute must be equal to the name of the PK in Directors in the DB. (in this case, director_id)
+		//IMPORTANT NOTE: @Column will break this, because @JoinColumn already makes it a column
 		
 		//there still needs to be code for referencing the user table via a FK
 		//for users to have individual wishlists.
@@ -110,13 +118,14 @@ public class Wishlist {
 			this.image = image;
 		}
 
-
-
 		@Override
 		public String toString() {
-			return "User [id=" + id + ", title=" + title + ", price=" + price + ", description=" + description
-					+ ", category=" + category + ", image=" + image + "]";
+			return "Wishlist [id=" + id + ", title=" + title + ", price=" + price + ", description=" + description
+					+ ", category=" + category + ", image=" + image + ", user=" + user.getId() + "]";
 		}
+
+
+
 		
 		
 }
