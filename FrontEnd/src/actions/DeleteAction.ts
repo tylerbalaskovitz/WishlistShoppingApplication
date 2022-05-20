@@ -1,16 +1,11 @@
 import axios from "axios";
- import { nItem } from "../store/types"
+ import { dItem } from "../store/types"
  import { REMOVE_ITEM } from "./actionTypes";
 import{ Login}  from "../components/Login/Login"
+import { AppState } from '../../store/types'
 
  interface deleteItem {
     id: string,
-    title: string,
-    price: string,
-    description: string,
-    category: string,
-    image: string,
-    
 }
 
 
@@ -18,7 +13,7 @@ import{ Login}  from "../components/Login/Login"
 //newuser functionality
 export const deleteItem = (deleteItemCreds:deleteItem) => async (dispatch:any) => {
     //create an empty object of type IUser - this will get filled on successful login
-    let newItem: nItem;
+    let deleteItem: dItem;
 
     try {
         //send my HTTP request with axios, and put it into a variable we can use
@@ -31,11 +26,6 @@ export const deleteItem = (deleteItemCreds:deleteItem) => async (dispatch:any) =
             deleteItemCreds = {
                 // user_id: appState.user.id,
                 id: string,
-                title: string,
-                price: string,
-                description: string,
-                category: string,
-                image: string,
             }
 
             //now we actually DISPATCH (send) this data to the store

@@ -8,7 +8,7 @@ import { nItem } from '../../store/types'
 import { AppState } from '../../store/types'
 import {deleteItem} from "../../actions/DeleteAction"
 
-export const Products: React.FC<any> = () => {
+export const ViewWishlist: React.FC<any> = () => {
     //instantiating a new dispatch object so we can send data to the database.
     let dispatch = useDispatch();
 

@@ -25,6 +25,9 @@ const initialState:AppState = {
         description: "",
         category: "",
         image: ""
+    },
+    dItem :{
+        id: ""
     }
     
 
