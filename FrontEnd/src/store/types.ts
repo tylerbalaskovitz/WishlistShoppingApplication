@@ -9,7 +9,7 @@ export interface IUser {
 export interface NUser {
    // ; May need to be deleted
    
-   username: string;
+    username: string;
     password: string;
     firstName: string;
     lastName: string;

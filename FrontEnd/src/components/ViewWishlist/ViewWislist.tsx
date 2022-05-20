@@ -6,6 +6,7 @@ import axios from 'axios'
 import "./Products.css"
 import { nItem } from '../../store/types'
 import { AppState } from '../../store/types'
+import {deleteItem} from "../../actions/DeleteAction"
 
 export const Products: React.FC<any> = () => {
     //instantiating a new dispatch object so we can send data to the database.
@@ -29,7 +30,7 @@ export const Products: React.FC<any> = () => {
         setLoading(true);
         axios({
             method:"GET",
-            url: "https://fakestoreapi.com/products"
+            url: "https://localhost:5000/userwishlist"
             //when the promise is finished do the then statement
             //like an if then.
         }).then(res=> {
@@ -53,18 +54,13 @@ export const Products: React.FC<any> = () => {
     //when user updates the values whichever is being updated changes
     //this is how we can send a username/password object to the CreateUser Action
     
-    let setProductValues =async (productId: any, productImage: any, productTitle: any, productPrice: any, productCategory: any, productdescription: any) => {
-        newItem = {
+    let setProductValues =async (productId: any) => {
+        let deleteItemInterface = {
             id: productId,
-            title: productTitle,
-            price: productPrice,
-            description: productdescription,
-            category: productCategory,
-            image: productImage
         }
     await dispatch(
 
-        addNewItem(newItem) as any
+        deleteItem(deleteItemInterface) as any
         //these are the states that were changed with handleChange
         //we need "as any" to make it so that the return type can be any type
     )
@@ -80,7 +76,7 @@ export const Products: React.FC<any> = () => {
        <>
        <div className = "background">
        <div className="Navigation bar">
-       <button> Go To wishlist</button><button onClick={logout}>Log Out</button>
+       <button onClick={logout}>Log Out</button>
        </div>
         <div className = "banner-image"></div>
        <div className="products-container">
@@ -93,7 +89,7 @@ export const Products: React.FC<any> = () => {
             <h6>{product.title}</h6>
             <h6>{`Price: ${product.price}`}</h6>
             <h6>{`Category: ${product.category}`}</h6>
-            <button className = "addToWishList" onClick={() => setProductValues(product.id, product.image, product.title, product.price, product.category, product.description)}>Add to Wishlist</button>
+            <button className = "deleteButton" onClick={() => setProductValues(product.id)}>Remove From Wishlist</button>
             
             </div>
             </div>
@@ -104,7 +100,3 @@ export const Products: React.FC<any> = () => {
             </>
     );
 };
-
-
-
-

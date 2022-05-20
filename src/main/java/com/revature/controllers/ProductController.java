@@ -17,6 +17,7 @@ public class ProductController {
 		// the body String is created using the Handler's configuration's body
 				
 		String body = ctx.body();
+//		ctx.result(ctx.formParam("id")) ;
 		Gson gson = new Gson();
 		Wishlist newWishlist = gson.fromJson(body, Wishlist.class);
 				
