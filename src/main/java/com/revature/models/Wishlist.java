@@ -66,6 +66,11 @@ public class Wishlist {
 			return id;
 		}
 
+		public Wishlist() {
+			super();
+			// TODO Auto-generated constructor stub
+		}
+
 		public Wishlist(int id, String title, String price, String description, String category, String image) {
 			super();
 			this.id = id;
