@@ -6,7 +6,7 @@ import com.revature.models.Wishlist;
 public class ProductService {
 	ProductDAO pDAO = new ProductDAO();
 	public void addProductService(Wishlist w) {
-		pDAO.addProductToUSer(w);
+		pDAO.addProductToUser(w);
 		
 	}
 }

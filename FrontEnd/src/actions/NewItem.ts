@@ -1,8 +1,9 @@
 import axios from "axios";
  import { nItem } from "../store/types"
  import { ADD_ITEM } from "./actionTypes";
-import{ appState}  from "../../components/Login/Login"
+import{ Login}  from "../components/Login/Login"
  interface addItem {
+
     id: string,
     title: string,
     price: string,
@@ -10,6 +11,8 @@ import{ appState}  from "../../components/Login/Login"
     category: string,
     image: string,
 }
+
+
 
 //newuser functionality
 export const addNewItem = (addItemCreds:addItem) => async (dispatch:any) => {
@@ -26,6 +29,7 @@ export const addNewItem = (addItemCreds:addItem) => async (dispatch:any) => {
             //populate our loggedInUser variable
             addItemCreds = {
                 // user_id: appState.user.id,
+                
                 id: response.data.id,
                 title: response.data.title,
                 price: response.data.price,

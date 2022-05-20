@@ -19,9 +19,9 @@ public class Wishlist {
 	//NOTE: THe ID IS NOT SERIAL since there needs to be multiple instances of items to 
 	//be stored for multiple users.
 		
-		@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-		@JoinColumn(name = "user.id")
-		private int wishlist_id;
+		//@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+		//@JoinColumn(name = "user.id")
+		//private int wishlist_id;
 		//for handling id of products in database
 		@Column
 		private int id;
@@ -35,11 +35,11 @@ public class Wishlist {
 		private String category;
 		@Column
 		private String image;
-		@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-		@JoinColumn(name = "id") //THIS is how you establish FK/PK relationships
+		//(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+		//(name = "id") //THIS is how you establish FK/PK relationships
 		//the name attribute must be equal to the name of the PK in Directors in the DB. (in this case, director_id)
 		//IMPORTANT NOTE: @Column will break this, because @JoinColumn already makes it a column
-		public User userId;
+		//public User userId;
 		
 		
 		//there still needs to be code for referencing the user table via a FK
