@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Query;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import com.revature.models.Wishlist;
 import com.revature.utils.HibernateUtil;
@@ -53,10 +54,27 @@ public List<Wishlist> getUserWishList(){
 
 
 	
-	public void deleteItembyUser(Wishlist w) {
+	public void deleteItembyUser(Wishlist w, int id) {
+		//opening a new hibernate session
 		Session ses = HibernateUtil.getSession();
-		ses.delete(w);
+		
+		Transaction tran = ses.beginTransaction();
+		//this needs to be inside of a transaction that needs to be updated
+		
+		//SQL statement used to delete an item
+		Query q = ses.createQuery("Delete FROM Wishlist w WHERE w.user_fk.user_id = ?0 and where w.id = ?1");
+		q.setParameter(0, id);
+		//the parameter 0 matches the 0 above in the query statement from above and the user_id int would be the row that it is deleting from 
+		q.setParameter(1, w.getId());
+		
+		//just like JDBC, the execute update needs to occur
+		q.executeUpdate();
+
+		//finally a commit must occur when updating and/or deleting data from the databases.
+		tran.commit();
+
 		HibernateUtil.closeSession();
+		//the hibernate session closes
 	}
 	
 	
