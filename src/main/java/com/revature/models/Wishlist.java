@@ -121,7 +121,7 @@ public class Wishlist {
 		@Override
 		public String toString() {
 			return "Wishlist [id=" + id + ", title=" + title + ", price=" + price + ", description=" + description
-					+ ", category=" + category + ", image=" + image + ", user=" + user.getId() + "]";
+					+ ", category=" + category + ", image=" + image + ", user=" + user.getUserEmail() + "]";
 		}
 
 

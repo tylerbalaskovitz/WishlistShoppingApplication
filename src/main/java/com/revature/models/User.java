@@ -35,8 +35,7 @@ public class User {
 	private String lastName;
 	@Column
 	private String userEmail;
-	@OneToMany(mappedBy="id", fetch=FetchType.EAGER)
-	private List<Wishlist> user_id;
+	
 
 	
 	public User() {
@@ -45,8 +44,25 @@ public class User {
 	
 
 
-public User(int id, String username, String password, String firstName, String lastName, String userEmail,
-		List<Wishlist> user_id) {
+
+
+
+
+
+
+
+public User(String username, String password, String firstName, String lastName, String userEmail) {
+	super();
+	this.username = username;
+	this.password = password;
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.userEmail = userEmail;
+}
+
+
+
+public User(int id, String username, String password, String firstName, String lastName, String userEmail) {
 	super();
 	this.id = id;
 	this.username = username;
@@ -54,82 +70,93 @@ public User(int id, String username, String password, String firstName, String l
 	this.firstName = firstName;
 	this.lastName = lastName;
 	this.userEmail = userEmail;
-	this.user_id = user_id;
 }
 
 
 
-public User(String username, String password, String firstName, String lastName, String userEmail,
-		List<Wishlist> user_id) {
-	super();
+public int getId() {
+	return id;
+}
+
+
+
+public void setId(int id) {
+	this.id = id;
+}
+
+
+
+public String getUsername() {
+	return username;
+}
+
+
+
+public void setUsername(String username) {
 	this.username = username;
+}
+
+
+
+public String getPassword() {
+	return password;
+}
+
+
+
+public void setPassword(String password) {
 	this.password = password;
+}
+
+
+
+public String getFirstName() {
+	return firstName;
+}
+
+
+
+public void setFirstName(String firstName) {
 	this.firstName = firstName;
+}
+
+
+
+public String getLastName() {
+	return lastName;
+}
+
+
+
+public void setLastName(String lastName) {
 	this.lastName = lastName;
+}
+
+
+
+public String getUserEmail() {
+	return userEmail;
+}
+
+
+
+public void setUserEmail(String userEmail) {
 	this.userEmail = userEmail;
-	this.user_id = user_id;
+}
+
+
+
+@Override
+public String toString() {
+	return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
+			+ ", lastName=" + lastName + ", userEmail=" + userEmail + "]";
 }
 
 
 
 
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getUserEmail() {
-		return userEmail;
-	}
-
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
-	}
-
-
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", userEmail=" + userEmail + ", user_id=" + user_id + "]";
-	}
-
+	
 //	public Wishlist getWish() {
 //		return wish;
 //	}

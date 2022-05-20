@@ -43,9 +43,20 @@ export const Login: React.FC<any> = () => {
         )
     }
 
+    // let user_id: uId = {
+    //     user_id: "",
+    //  }
+
+    // const getUserCookie(user_id) {
+    //     user_id: user_id;
+
+    // }
+
+
     //useEffect hook that runs when appState changes
     //based on whether the user successfully logged in, change the page or do nothing
     useEffect(() => {
+        //appState.user.id => getUserCookie()
         if(appState.user.id > 0){
             navigate("/Products"); //thanks to Routing in the App.tsx, this will switch the component.
         }
