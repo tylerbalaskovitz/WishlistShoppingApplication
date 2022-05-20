@@ -1,0 +1,50 @@
+.background {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("/public/wishlistbanner.png");
+    background-size: 40%;
+    
+}
+
+
+
+
+.products-container {
+    margin-top: 150px;
+    width: 100%;
+    min-height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    padding: 10px;
+  }
+  
+  img {
+    width: 250px;
+    height: 250px;
+    transition: all 0.3s ease;
+  }
+  
+  img:hover {
+    transform: scale(2);
+  }
+  
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px 0;
+  }
+  
+  .card-description {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  

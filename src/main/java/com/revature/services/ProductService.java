@@ -37,7 +37,7 @@ public class ProductService {
 		
 	}
 	
-	public void deleteUserItem(Wishlist w, int user_id) {
-		pDAO.deleteItembyUser( w, user_id);
+	public void deleteUserItem(int user_id, int product_id) {
+		pDAO.deleteItembyUser(user_id, product_id);
 	}
 }

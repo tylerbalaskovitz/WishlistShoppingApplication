@@ -24,7 +24,6 @@ export interface nItem {
     image: string;
     
  }
-
  export interface dItem{
      id: string;
  }

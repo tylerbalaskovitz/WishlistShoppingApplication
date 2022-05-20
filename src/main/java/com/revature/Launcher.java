@@ -27,13 +27,14 @@ public class Launcher {
 		app.post("/login", uc.loginHandler);
 		
 		//handler for getting a specific user's wishlist based on their id
-		app.get("/userwishlist/{id}", pc.getUserWishlist);
+		app.get("/userwishlist/{user_id}", pc.getUserWishlist);
 		
 		app.post("/addnewitem", pc.addProductHandler);
 		//This HTTP request is used to create a new user using the newUserHandler in the User Controller 
 		app.post("/createuser", uc.newUserHandler);
 		
-		app.delete("/deleteitem/{id}", pc.deleteProductHandler);
+		//adding a path parameter
+		app.delete("/deleteitem/{user_id}/{product_id}", pc.deleteProductHandler);
 		
 		System.out.println("Hello, test for the GIT Pull and Pushes inconsistencies");
 		

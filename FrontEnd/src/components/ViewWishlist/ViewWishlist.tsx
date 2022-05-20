@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { deleteItem} from "../../actions/DeleteAction"
 import axios from 'axios'
-import "./Products.css"
+import "./ViewWishlist.css"
 import { dItem } from '../../store/types'
 import { AppState } from '../../store/types'
 import {viewWishList} from "../../actions/ViewWishlistAction"
 
-export const ViewWishlist: React.FC<any> = () => {
+export const ViewWishlist: React.FC<any> = (get:any) => {
     //instantiating a new dispatch object so we can send data to the database.
     let dispatch = useDispatch();
     const appState = useSelector<any, any>((state) => state);
@@ -43,18 +43,14 @@ export const ViewWishlist: React.FC<any> = () => {
     
     const navigate = useNavigate();
 
-    //when user updates the username/password field, this function is called
-    //when user updates the values whichever is being updated changes
-    //this is how we can send a username/password object to the CreateUser Action
     
     let deleteProduct =async (productId: any) => {
         //this is where we'll call appstate
         let dItem = {
             id: productId,
-            user_id :1
         }
     await dispatch(
-        deleteItem(dItem) as any
+        deleteItem(productId) as any
         //these are the states that were changed with handleChange
         //we need "as any" to make it so that the return type can be any type
     )

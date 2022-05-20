@@ -61,7 +61,7 @@ public List<Wishlist> getUserWishList(int user_id){
 
 
 	
-	public void deleteItembyUser(Wishlist w, int id) {
+	public void deleteItembyUser(int user_id, int product_id) {
 		//opening a new hibernate session
 		Session ses = HibernateUtil.getSession();
 		
@@ -70,9 +70,9 @@ public List<Wishlist> getUserWishList(int user_id){
 		
 		//SQL statement used to delete an item
 		Query q = ses.createQuery("Delete FROM Wishlist w WHERE w.user_fk.user_id = ?0 and where w.id = ?1");
-		q.setParameter(0, id);
+		q.setParameter(0, user_id);
 		//the parameter 0 matches the 0 above in the query statement from above and the user_id int would be the row that it is deleting from 
-		q.setParameter(1, w.getId());
+		q.setParameter(1,product_id);
 		
 		//just like JDBC, the execute update needs to occur
 		q.executeUpdate();

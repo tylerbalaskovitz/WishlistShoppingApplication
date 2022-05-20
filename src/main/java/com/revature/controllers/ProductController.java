@@ -33,7 +33,7 @@ public class ProductController {
 		
 		String body = ctx.body();
 		Gson gson = new Gson();
-		int user_id = Integer.parseInt(ctx.pathParam("id"));
+		int user_id = Integer.parseInt(ctx.pathParam("user_id"));
 		List<Wishlist> userWishlist = ps.getUserWishList(user_id);
 		System.out.print(userWishlist);
 		ctx.result(gson.toJson(ps.getUserWishList(user_id)));
@@ -42,11 +42,12 @@ public class ProductController {
 	};
 	
 	public Handler deleteProductHandler = (ctx) -> {
-		String body = ctx.body();
-		int user_id = Integer.parseInt(ctx.pathParam("id"));
-		Gson gson = new Gson();
-		Wishlist deleteWishlist = gson.fromJson(body, Wishlist.class);
-		ps.deleteUserItem(deleteWishlist, user_id);
+//		String body = ctx.body();
+		int user_id = Integer.parseInt(ctx.pathParam("user_id"));
+		int product_id = Integer.parseInt(ctx.pathParam("product_id"));
+//		Gson gson = new Gson();
+	//	Wishlist deleteWishlist = gson.fromJson(body, Wishlist.class);
+		ps.deleteUserItem(user_id, product_id);
 		ctx.status(202);
 	};
 }

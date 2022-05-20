@@ -5,16 +5,18 @@ import { addNewItem} from "../../actions/NewItem"
 import axios from 'axios'
 import "./Products.css"
 import { nItem } from '../../store/types'
+import { AppState } from '../../store/types'
 
-
-export const Products: React.FC<any> = () => {
+export const Products: React.FC<any> = (get:any) => {
     //instantiating a new dispatch object so we can send data to the database.
     let dispatch = useDispatch();
 
     const [loading, setLoading] = useState(false);
     //When constructing set data, and doing a useState for data coming in an array
     //make sure that the useState is ALSO in an array with ANY type of data to go into it.
+    const appState = useSelector<any, any>((state) => state);
     const [data, setData] = useState<any[]>([])
+    
 
     let newItem: nItem = {
         id: "",
@@ -44,9 +46,6 @@ export const Products: React.FC<any> = () => {
 
     },[])
 
-
-
-    
     const navigate = useNavigate();
 
     //when user updates the username/password field, this function is called
@@ -64,23 +63,23 @@ export const Products: React.FC<any> = () => {
         }
     await dispatch(
 
-        addNewItem(newItem) as any
+        addNewItem(productId) as any
         //these are the states that were changed with handleChange
         //we need "as any" to make it so that the return type can be any type
     )
    }
 
-//    let logout{
-//     AppState.iUser.id = 0,
-//     navigate("/login")
-//    }
+   let logout= () => {
+    appState.user.id = 0
+    navigate("/login")
+   }
 
    
     return (
        <>
        <div className = "background">
        <div className="Navigation bar">
-       <button> Go To wishlist</button><button>Log Out</button>
+       <button> Go To wishlist</button><button onClick={logout}>Log Out</button>
        </div>
         <div className = "banner-image"></div>
        <div className="products-container">
@@ -104,7 +103,4 @@ export const Products: React.FC<any> = () => {
             </>
     );
 };
-
-
-
 
