@@ -10,6 +10,7 @@ import com.revature.models.Wishlist;
 import com.revature.utils.HibernateUtil;
 
 public class ProductDAO {
+public int id;
 
 	public void addProductToUser(Wishlist w) {
 		
@@ -28,7 +29,7 @@ public class ProductDAO {
 	
 		//List is used for getting a Wishlist by the id, so we can have individualized user information. What gets sent as the ID needs to be determined
 		//on the front end.
-public List<Wishlist> getUserWishList(int id){
+public List<Wishlist> getUserWishList(){
 		
 		
 	
@@ -47,6 +48,7 @@ public List<Wishlist> getUserWishList(int id){
 		//create a List of Movies based on the results of the query
 		List<Wishlist> wishlist = q.getResultList();
 		
+		//ends the hibernate session
 		HibernateUtil.closeSession();
 		
 		return wishlist;
