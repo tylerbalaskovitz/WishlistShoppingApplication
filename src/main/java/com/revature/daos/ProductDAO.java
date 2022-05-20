@@ -26,25 +26,19 @@ public int id;
 	
 		//List is used for getting a Wishlist by the id, so we can have individualized user information. What gets sent as the ID needs to be determined
 		//on the front end.
-public List<Wishlist> getUserWishList(){
+public List<Wishlist> getUserWishList(int user_id){
 		
-		
-	
 		//open a Session object to connect to the DB
 		Session ses = HibernateUtil.getSession();
-		
-		
 		//create a query with a parameter that takes in the user's id (given in the method argument)
 		//"find every product, p, where the id of it's Director object = ?"
 		//"m" is an alias (different name) that we gave to Movie, so help us make a cleaner query
-		Query q = ses.createQuery("FROM Wishlist w WHERE w.user_fk.user_id = ?0");
-		
+		Query q = ses.createQuery("FROM Wishlist w WHERE w.user_fk.id = ?0");
 		//set the ? to the id sent in the method call. This is how we PARAMETERIZE HQL
-		q.setParameter(0, id);
-		
+		q.setParameter(0, user_id);
 		//create a List of Movies based on the results of the query
 		List<Wishlist> wishlist = q.getResultList();
-		
+
 		//ends the hibernate session
 		HibernateUtil.closeSession();
 		

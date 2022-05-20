@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.revature.models.User;
@@ -30,8 +31,10 @@ public class ProductController {
 		
 		String body = ctx.body();
 		Gson gson = new Gson();
-		
-		ps.getUserWishList();
+		int user_id = Integer.parseInt(ctx.pathParam("id"));
+		List<Wishlist> userWishlist = ps.getUserWishList(user_id);
+		System.out.print(userWishlist);
+		ctx.result(gson.toJson(ps.getUserWishList(user_id)));
 		ctx.status(202);
 		
 	};

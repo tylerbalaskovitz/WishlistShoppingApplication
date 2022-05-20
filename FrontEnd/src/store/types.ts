@@ -8,15 +8,12 @@ export interface IUser {
 }
 export interface NUser {
    // ; May need to be deleted
-   
     username: string;
     password: string;
     firstName: string;
     lastName: string;
     userEmail: string;
-
 }
-
 export interface nItem {
     
     id: string;
@@ -25,7 +22,7 @@ export interface nItem {
     description: string;
     category: string;
     image: string;
- 
+    
  }
 
  export interface dItem{

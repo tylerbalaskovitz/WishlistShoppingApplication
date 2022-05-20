@@ -1,8 +1,8 @@
 import axios from "axios";
- import { nItem } from "../store/types"
+ import { nItem } from "../store/types";
  import { ADD_ITEM } from "./actionTypes";
-import{ Login}  from "../components/Login/Login"
-import { AppState } from '../../store/types'
+import{ Login}  from "../components/Login/Login";
+import { AppState } from "../store/types";
  interface addItem {
 
     id: string,

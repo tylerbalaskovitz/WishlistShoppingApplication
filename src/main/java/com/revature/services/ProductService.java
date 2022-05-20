@@ -16,15 +16,11 @@ public class ProductService {
 		
 	}
 	
-		public List<Wishlist> getUserWishList(){
-		
-		//get the list of wishlist from the DAO
-			List<Wishlist> userWishlist = pDAO.getUserWishList();
-		
-		
-		
-		//return that List of wishlist.
-		return userWishlist;
+	public List<Wishlist> getUserWishList(int user_id){
+	//get the list of wishlist from the DAO
+	List<Wishlist> userWishlist = pDAO.getUserWishList(user_id);
+	//return that List of wishlist.
+	return userWishlist;
 		
 	}
 	

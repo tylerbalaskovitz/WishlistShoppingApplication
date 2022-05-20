@@ -1,7 +1,7 @@
  //This is the file where our actual business logic will occur (like calls to an API)
 
  import axios from "axios";
-import { ViewWishlist } from "../components/ViewWishlist/ViewWishlist";
+ import { ViewWishlist } from "../components/ViewWishlist/ViewWishlist";
  import { nItem } from "../store/types"
  import { VIEW_WISHLIST } from "./actionTypes";
  //There will be functionality here that use or change our User state object
@@ -27,9 +27,7 @@ import { ViewWishlist } from "../components/ViewWishlist/ViewWishlist";
              
              console.log(response)
              //populate our loggedInUser variable
-             loggedInUser = {
-               
-             }
+             
  
              //now we actually DISPATCH (send) this data to the store
              //notice in the reducers, this is the type of data we need for the Action object

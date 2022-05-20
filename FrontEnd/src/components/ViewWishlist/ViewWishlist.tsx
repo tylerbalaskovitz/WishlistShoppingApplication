@@ -11,21 +11,19 @@ import {viewWishList} from "../../actions/ViewWishlistAction"
 export const ViewWishlist: React.FC<any> = () => {
     //instantiating a new dispatch object so we can send data to the database.
     let dispatch = useDispatch();
-
+    const appState = useSelector<any, any>((state) => state);
     const [loading, setLoading] = useState(false);
     //When constructing set data, and doing a useState for data coming in an array
     //make sure that the useState is ALSO in an array with ANY type of data to go into it.
     const [data, setData] = useState<any[]>([])
 
-    let deleteItem: dItem = {
-        id: "",
-     }
+    
     
     useEffect(() => {
         setLoading(true);
         axios({
             method:"GET",
-            url: "https://localhost:5000/userwishlist"
+            url: "https://localhost:5000/userwishlist/" + appState.user.id
             //when the promise is finished do the then statement
             //like an if then.
         }).then(res=> {
@@ -50,19 +48,22 @@ export const ViewWishlist: React.FC<any> = () => {
     //this is how we can send a username/password object to the CreateUser Action
     
     let deleteProduct =async (productId: any) => {
-        dItem = {
+        //this is where we'll call appstate
+        let dItem = {
             id: productId,
+            user_id :1
         }
     await dispatch(
-        deleteItem(item) as any
+        deleteItem(dItem) as any
         //these are the states that were changed with handleChange
         //we need "as any" to make it so that the return type can be any type
     )
    }
-//    let logout{
-//     AppState.iUser.id = 0,
-//     navigate("/login")
-//    }
+
+   let logout= () => {
+    appState.user.id = 0
+    navigate("/login")
+   }
    
     return (
        <>

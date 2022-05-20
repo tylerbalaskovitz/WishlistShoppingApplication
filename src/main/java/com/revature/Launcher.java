@@ -27,7 +27,7 @@ public class Launcher {
 		app.post("/login", uc.loginHandler);
 		
 		//handler for getting a specific user's wishlist based on their id
-		app.get("/userwishlist", pc.getUserWishlist);
+		app.get("/userwishlist/{id}", pc.getUserWishlist);
 		
 		app.post("/addnewitem", pc.addProductHandler);
 		//This HTTP request is used to create a new user using the newUserHandler in the User Controller 
