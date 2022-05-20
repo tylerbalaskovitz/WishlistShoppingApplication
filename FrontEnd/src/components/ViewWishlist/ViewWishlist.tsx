@@ -6,7 +6,7 @@ import axios from 'axios'
 import "./Products.css"
 import { nItem } from '../../store/types'
 import { AppState } from '../../store/types'
-import {deleteItem} from "../../actions/DeleteAction"
+import {viewWishList} from "../../actions/ViewWishlistAction"
 
 export const ViewWishlist: React.FC<any> = () => {
     //instantiating a new dispatch object so we can send data to the database.
@@ -55,12 +55,17 @@ export const ViewWishlist: React.FC<any> = () => {
     //this is how we can send a username/password object to the CreateUser Action
     
     let setProductValues =async (productId: any) => {
-        let deleteItemInterface = {
+        newItem = {
             id: productId,
+            title: productTitle,
+            price: productPrice,
+            description: productdescription,
+            category: productCategory,
+            image: productImage
         }
     await dispatch(
 
-        deleteItem(deleteItemInterface) as any
+        viewWishList(newItem) as any
         //these are the states that were changed with handleChange
         //we need "as any" to make it so that the return type can be any type
     )

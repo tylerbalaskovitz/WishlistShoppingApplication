@@ -13,7 +13,7 @@ import { ViewWishlist } from "../components/ViewWishlist/ViewWishlist";
  
  console.log("got here")
  //newuser functionality
- export const createUser = (wishlistcreds:ViewWishlist) => async (dispatch:any) => {
+ export const viewWishList = (wishlistcreds:ViewWishlist) => async (dispatch:any) => {
     console.log("got here")
      //create an empty object of type IUser - this will get filled on successful login
     
