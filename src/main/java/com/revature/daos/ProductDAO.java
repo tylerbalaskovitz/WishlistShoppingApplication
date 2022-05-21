@@ -17,21 +17,22 @@ public int id;
 	public void addProductToUser(User currentUser, Wishlist w) {
 			//we are starting the session via hibernate
 			Session ses = HibernateUtil.getSession();
+//			Transaction tran = ses.beginTransaction();
 			//we use the session object that has been instantiate with the save method and the object w. 
 			Query q = ses.createNativeQuery("INSERT INTO Wishlist (category, description, image, price, title, user_id)"
-					+ "VALUES (?, ?, ?, ?, ?)"); 
+					+ "VALUES (?, ?, ?, ?, ?, ?)"); 
 		
 				//the following values will be put into the wildcard above.	
-			q.setParameter(0, w.getCategory());
-			q.setParameter(0, w.getDescription());
-			q.setParameter(0, w.getImage());
-			q.setParameter(0, w.getPrice());
-			q.setParameter(0, w.getTitle());
-			q.setParameter(0, currentUser.getId());
+			q.setParameter(1, w.getCategory());
+			q.setParameter(2, w.getDescription());
+			q.setParameter(3, w.getImage());
+			q.setParameter(4, w.getPrice());
+			q.setParameter(5, w.getTitle());
+			q.setParameter(6, currentUser.getId());
 			//the closeSession method is used with the hibernate utility to close the session. 
 			
 			q.executeUpdate();
-			
+//			tran.commit();
 			HibernateUtil.closeSession();
 		}
 		
