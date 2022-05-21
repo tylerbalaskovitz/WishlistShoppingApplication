@@ -74,6 +74,8 @@ export const Products: React.FC<any> = (post:any) => {
     )
    }
 
+
+   //when creating the logout function using the AppState created above, you NEED a lambda function
    let logout = () => {
     appState.user.id = 0
     navigate("/")
