@@ -7,7 +7,7 @@ import "./Products.css"
 import { nItem } from '../../store/types'
 import { AppState } from '../../store/types'
 
-export const Products: React.FC<any> = (post: any => {
+export const Products: React.FC<any> = (post:any) => {
     //instantiating a new dispatch object so we can send data to the database.
     let dispatch = useDispatch();
 
@@ -56,7 +56,7 @@ export const Products: React.FC<any> = (post: any => {
     //when user updates the values whichever is being updated changes
     //this is how we can send a username/password object to the CreateUser Action
     
-    let setProductValues =async (productId: any, productImage: any, productTitle: any, productPrice: any, productCategory: any, productdescription: any) => {
+    const setProductValues =async (productId: any, productImage: any, productTitle: any, productPrice: any, productCategory: any, productdescription: any) => {
         newItem = {
             user_id: "",
             id: productId,
@@ -74,8 +74,8 @@ export const Products: React.FC<any> = (post: any => {
     )
    }
 
-   let logout{
-    appState.iUser.id = 0,
+   let logout: {
+    appState.user.id = 0
     navigate("/")
    }
 
@@ -84,7 +84,7 @@ export const Products: React.FC<any> = (post: any => {
        <>
        <div className = "background">
        <div className="Navigation bar">
-       <button> Go To wishlist</button><button>Log Out</button>
+       <button> Go To wishlist</button><button onClick={logout}>Log Out</button>
        </div>
         <div className = "banner-image"></div>
        <div className="products-container">
