@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
  
  export const viewWishList = () => async (dispatch:any) => {
     console.log("got here")
+    const appState = useSelector<any, any>((state) => state);
     
  
      try {
