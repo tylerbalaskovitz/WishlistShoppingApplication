@@ -17,9 +17,9 @@ public int id;
 	public void addProductToUser(User currentUser, Wishlist w) {
 			//we are starting the session via hibernate
 			Session ses = HibernateUtil.getSession();
-//			Transaction tran = ses.beginTransaction();
+			Transaction tran = ses.beginTransaction();
 			//we use the session object that has been instantiate with the save method and the object w. 
-			Query q = ses.createNativeQuery("INSERT INTO Wishlist (category, description, image, price, title, user_id)"
+			Query q = ses.createNativeQuery("INSERT INTO wishlist (category, description, image, price, title, user_id) "
 					+ "VALUES (?, ?, ?, ?, ?, ?)"); 
 		
 				//the following values will be put into the wildcard above.	
@@ -32,7 +32,7 @@ public int id;
 			//the closeSession method is used with the hibernate utility to close the session. 
 			
 			q.executeUpdate();
-//			tran.commit();
+			tran.commit();
 			HibernateUtil.closeSession();
 		}
 		
