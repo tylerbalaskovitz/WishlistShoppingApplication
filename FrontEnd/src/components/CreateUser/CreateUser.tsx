@@ -54,6 +54,7 @@ export const CreateUser: React.FC<any> = (post:any) => {
             //we need "as any" to make it so that the return type can be any type
         )
         console.log("after dispatch")
+        navigate("/")
     }
 
     //useEffect hook that runs when appState changes

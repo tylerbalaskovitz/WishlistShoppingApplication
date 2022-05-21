@@ -18,7 +18,7 @@ public int id;
 			//we are starting the session via hibernate
 			Session ses = HibernateUtil.getSession();
 			//we use the session object that has been instantiate with the save method and the object w. 
-			Query q = ses.createNativeQuery("INSERT INTO Wishlist (category, description, image, price, title, user_id) "
+			Query q = ses.createNativeQuery("INSERT INTO Wishlist (category, description, image, price, title, user_id)"
 					+ "VALUES (?, ?, ?, ?, ?)"); 
 		
 				//the following values will be put into the wildcard above.	
