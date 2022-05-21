@@ -74,7 +74,7 @@ export const Products: React.FC<any> = (post:any) => {
     )
    }
 
-   let logout: {
+   let logout = () => {
     appState.user.id = 0
     navigate("/")
    }
