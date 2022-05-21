@@ -15,7 +15,7 @@ export interface NUser {
     userEmail: string;
 }
 export interface nItem {
-    
+    user_id: string,
     id: string;
     title: string;
     price: string;

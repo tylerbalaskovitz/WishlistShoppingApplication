@@ -58,7 +58,7 @@ export const ViewWishlist: React.FC<any> = (get:any) => {
 
    let logout= () => {
     appState.user.id = 0
-    navigate("/login")
+    navigate("/")
    }
    
     return (

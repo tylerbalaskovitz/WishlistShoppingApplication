@@ -19,6 +19,7 @@ const initialState:AppState = {
         userEmail:""
     },
     nItem : {
+        user_id: "",
         id: "",
         title: "",
         price: "",

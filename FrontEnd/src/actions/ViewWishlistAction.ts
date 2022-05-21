@@ -9,11 +9,9 @@ import { useSelector } from "react-redux";
  
  //interface that models the user's login credentials, we'll send in our POST request
  //second interface for new users
- const appState = useSelector<any, any>((state) => state);
-
  
- console.log("got here")
-
+ 
+ 
  export const viewWishList = () => async (dispatch:any) => {
     console.log("got here")
     const appState = useSelector<any, any>((state) => state);

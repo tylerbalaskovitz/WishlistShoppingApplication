@@ -16,10 +16,10 @@ import { useSelector } from "react-redux";
     
 }
 
-const appState = useSelector<any, any>((state) => state);
 //newuser functionality
 export const addNewItem = (addItemCreds:addItem) => async (dispatch:any) => {
-    //create an empty object of type IUser - this will get filled on successful login
+    const appState = useSelector<any, any>((state) => state);
+    //create an empty object of type nItem - this will get filled on success
     let newItem: nItem;
 
     try {
@@ -31,7 +31,6 @@ export const addNewItem = (addItemCreds:addItem) => async (dispatch:any) => {
             console.log(response)
             //populate our loggedInUser variable
             addItemCreds = {
-                
                 user_id: appState.user.id,
                 id: response.data.id,
                 title: response.data.title,

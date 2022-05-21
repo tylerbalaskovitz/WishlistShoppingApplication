@@ -4,7 +4,7 @@ import { nItem } from "../store/types";
 //this is the user reducer, which will help us calculate changes in the User
 
 let initialState:nItem = {
-
+    user_id: "",
     id: "",
     title: "",
     price: "",
