@@ -7,9 +7,11 @@ import "./Products.css"
 import { nItem } from '../../store/types'
 import { AppState } from '../../store/types'
 
-export const Products: React.FC<any> = () => {
+export const Products: React.FC<any> = (post: any => {
     //instantiating a new dispatch object so we can send data to the database.
     let dispatch = useDispatch();
+
+    const appState = useSelector<any, any>((state) => state);
 
     const [loading, setLoading] = useState(false);
     //When constructing set data, and doing a useState for data coming in an array
@@ -17,6 +19,7 @@ export const Products: React.FC<any> = () => {
     const [data, setData] = useState<any[]>([])
 
     let newItem: nItem = {
+        user_id: "",
         id: "",
         title: "",
         price: "",
@@ -55,6 +58,7 @@ export const Products: React.FC<any> = () => {
     
     let setProductValues =async (productId: any, productImage: any, productTitle: any, productPrice: any, productCategory: any, productdescription: any) => {
         newItem = {
+            user_id: "",
             id: productId,
             title: productTitle,
             price: productPrice,
@@ -70,10 +74,10 @@ export const Products: React.FC<any> = () => {
     )
    }
 
-//    let logout{
-//     AppState.iUser.id = 0,
-//     navigate("/login")
-//    }
+   let logout{
+    appState.iUser.id = 0,
+    navigate("/")
+   }
 
    
     return (
