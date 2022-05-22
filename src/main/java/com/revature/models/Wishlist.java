@@ -28,6 +28,8 @@ public class Wishlist {
 		@Column
 		private int id;
 		@Column
+		private int product_id;
+		@Column
 		private String title;
 		@Column
 		private String price;
@@ -74,16 +76,40 @@ public class Wishlist {
 			this.image = image;
 			this.user_fk = user_fk;
 		}
+		
+		
+
+		public Wishlist(int product_id, String title, String price, String description, String category, String image,
+				User user_fk) {
+			super();
+			this.product_id = product_id;
+			this.title = title;
+			this.price = price;
+			this.description = description;
+			this.category = category;
+			this.image = image;
+			this.user_fk = user_fk;
+		}
 
 		public Wishlist() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
+
 		public int getId() {
 			return id;
 		}
+
 		public void setId(int id) {
 			this.id = id;
+		}
+
+		public int getProduct_id() {
+			return product_id;
+		}
+
+		public void setProduct_id(int product_id) {
+			this.product_id = product_id;
 		}
 
 		public String getTitle() {
@@ -125,6 +151,16 @@ public class Wishlist {
 		public void setImage(String image) {
 			this.image = image;
 		}
+
+		public User getUser_fk() {
+			return user_fk;
+		}
+
+		public void setUser_fk(User user_fk) {
+			this.user_fk = user_fk;
+		}
+		
+	
 
 }
 	

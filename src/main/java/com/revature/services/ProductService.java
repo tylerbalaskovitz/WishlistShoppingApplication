@@ -22,6 +22,7 @@ public class ProductService {
 		// a new wishlist object is instantiated called currentWishlist, that takes the title, price, description, category, image and THE newly instantiated
 		//current user object above that includes the parsed string to integer conversion.
 		Wishlist currentWishlist = new Wishlist(
+				Integer.parseInt(pDTO.product_id),
 				pDTO.title,
 				pDTO.price,
 				pDTO.description,

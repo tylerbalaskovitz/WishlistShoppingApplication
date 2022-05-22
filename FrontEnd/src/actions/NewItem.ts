@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 
  interface addItem {
     user_id: string,
+    product_id :string,
     title: string,
     price: string,
     description: string,
@@ -30,6 +31,7 @@ export const addNewItem = (addItemCreds:addItem) => async (dispatch:any) => {
             console.log(addItemCreds.user_id)
             addItemCreds = {
                 user_id: response.data.user.id,
+                product_id: response.data.product_id,
                 title: response.data.title,
                 price: response.data.price,
                 description: response.data.description,
