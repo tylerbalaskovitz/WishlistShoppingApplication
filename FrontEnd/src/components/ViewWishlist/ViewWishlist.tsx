@@ -6,7 +6,7 @@ import axios from 'axios'
 import "./ViewWishlist.css"
 import { dItem } from '../../store/types'
 import { AppState } from '../../store/types'
-import {viewWishList} from "../../actions/ViewWishlistAction"
+
 
 export const ViewWishlist: React.FC<any> = (get:any) => {
     //instantiating a new dispatch object so we can send data to the database.

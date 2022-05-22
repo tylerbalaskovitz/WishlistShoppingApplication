@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 
  interface addItem {
     user_id: string,
-    id: string,
     title: string,
     price: string,
     description: string,
@@ -31,7 +30,6 @@ export const addNewItem = (addItemCreds:addItem) => async (dispatch:any) => {
             console.log(addItemCreds.user_id)
             addItemCreds = {
                 user_id: response.data.user.id,
-                id: response.data.id,
                 title: response.data.title,
                 price: response.data.price,
                 description: response.data.description,
@@ -49,7 +47,7 @@ export const addNewItem = (addItemCreds:addItem) => async (dispatch:any) => {
         }
 
     } catch (e) {
-        console.log("LOGIN FAILED!")
+        console.log("ADDITEM FAILED!")
     }
 
 }

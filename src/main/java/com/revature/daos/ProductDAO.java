@@ -15,28 +15,27 @@ import com.revature.utils.HibernateUtil;
 public class ProductDAO {
 public int id;
 
-	@Transactional 
-	public void addProductToUser(User currentUser, Wishlist w) {
+
+	public void addProductToUser(Wishlist w) {
 			//we are starting the session via hibernate
 			Session ses = HibernateUtil.getSession();
-			Transaction tran = ses.beginTransaction();
-//			//we use the session object that has been instantiate with the save method and the object w. 
-			Query q = ses.createQuery("INSERT INTO wishlist (category, description, image, price, title, user_id)"
-					+ "VALUES (?, ?, ?, ?, ?, ?)"); 
+//			Transaction tran = ses.beginTransaction();
+////			//we use the session object that has been instantiate with the save method and the object w. 
+//			Query q = ses.createQuery("INSERT INTO wishlist (category, description, image, price, title, user_id)"
+//					+ "VALUES (?, ?, ?, ?, ?, ?)"); 
 		
 				//the following values will be put into the wildcard above.	
-			q.setParameter(1, w.getCategory());
-			q.setParameter(2, w.getDescription());
-			q.setParameter(3, w.getImage());
-			q.setParameter(4, w.getPrice());
-			q.setParameter(5, w.getTitle());
-			q.setParameter(6, currentUser.getId());
+//			q.setParameter(1, w.getCategory());
+//			q.setParameter(2, w.getDescription());
+//			q.setParameter(3, w.getImage());
+//			q.setParameter(4, w.getPrice());
+//			q.setParameter(5, w.getTitle());
+//			q.setParameter(6, currentUser.getId());
 //			//the closeSession method is used with the hibernate utility to close the session. 
 //			w.user_fk = currentUser;
-//		
-//			ses.persist(w);
-			q.executeUpdate();
-			tran.commit();
+			ses.persist(w);
+//			q.executeUpdate();
+//			tran.commit();
 			HibernateUtil.closeSession();
 		}
 		

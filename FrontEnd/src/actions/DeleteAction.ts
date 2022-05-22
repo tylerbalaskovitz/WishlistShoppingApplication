@@ -37,7 +37,7 @@ export const deleteItem = (deleteItemCreds:deleteItem) => async (dispatch:any) =
         }
 
     } catch (e) {
-        console.log("LOGIN FAILED!")
+        console.log("DELETE ITEM FAILED!")
     }
 
 }
