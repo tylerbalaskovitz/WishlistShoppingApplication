@@ -20,6 +20,7 @@ export const Products: React.FC<any> = (post:any) => {
 
     let newItem: nItem = {
         user_id: "",
+        product_id: "",
         title: "",
         price: "",
         description: "",
@@ -58,6 +59,7 @@ export const Products: React.FC<any> = (post:any) => {
     const setProductValues =async (productId: any, productImage: any, productTitle: any, productPrice: any, productCategory: any, productdescription: any) => {
         newItem = {
             user_id: appState.user.id,
+            product_id: productId,
             title: productTitle,
             price: productPrice,
             description: productdescription,

@@ -20,6 +20,7 @@ const initialState:AppState = {
     },
     nItem : {
         user_id: "",
+        product_id: "",
         title: "",
         price: "",
         description: "",
