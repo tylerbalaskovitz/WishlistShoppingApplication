@@ -7,7 +7,7 @@ import "./Products.css"
 import { nItem } from '../../store/types'
 import { AppState } from '../../store/types'
 
-export const Products: React.FC<any> = (post:any) => {
+export const Jewelery: React.FC<any> = (post:any) => {
     //instantiating a new dispatch object so we can send data to the database.
     let dispatch = useDispatch();
 
@@ -32,7 +32,7 @@ export const Products: React.FC<any> = (post:any) => {
         setLoading(true);
         axios({
             method:"GET",
-            url: "https://fakestoreapi.com/products"
+            url: "https://fakestoreapi.com/products/category/jewelery"
             //when the promise is finished do the then statement
             //like an if then.
         }).then(res=> {

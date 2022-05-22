@@ -7,6 +7,10 @@ import { Login } from './components/Login/Login';
 import { CreateUser } from './components/CreateUser/CreateUser';
 import { Products } from './components/Products/Products';
 import { ViewWishlist } from './components/ViewWishlist/ViewWishlist';
+import { Electronics  } from './components/Products/Electronics';
+import { Jewelery  } from './components/Products/Jewelery';
+import { MensClothing  } from './components/Products/MensClothing';
+import { WomensClothing  } from './components/Products/WomensClothing';
 
 function App() {
   return (
@@ -26,6 +30,18 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/viewwishlist" element={<ViewWishlist/>}/>
+        </Routes>
+        <Routes>
+          <Route path="/Electronics" element={<Electronics/>}/>
+        </Routes>
+        <Routes>
+          <Route path="/Jewelery" element={<Jewelery/>}/>
+        </Routes>
+        <Routes>
+          <Route path="/MensClothing" element={<MensClothing/>}/>
+        </Routes>
+        <Routes>
+          <Route path="/WomensClothing" element={<WomensClothing/>}/>
         </Routes>
       </Router>
     </div>
