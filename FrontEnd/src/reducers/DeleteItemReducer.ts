@@ -5,8 +5,7 @@ import { dItem } from "../store/types";
 
 let initialState:dItem = {
 
-    id: "",
-    user_id: ""
+    product_id: "",
     
     
 }

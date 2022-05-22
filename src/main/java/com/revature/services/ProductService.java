@@ -45,7 +45,13 @@ public class ProductService {
 		
 	}
 	
-	public void deleteUserItem(int user_id, int product_id) {
-		pDAO.deleteItembyUser(user_id, product_id);
+	public void deleteUserItem(ProductDTO deleteProduct) {
+		String deleteItemString = deleteProduct.product_id;
+		
+		pDAO.deleteItembyUser(deleteItemString);
+		
+		
+		
+		
 	}
 }

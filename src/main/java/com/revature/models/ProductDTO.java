@@ -8,5 +8,19 @@ public class ProductDTO {
 	public String description;
 	public String category;
 	public String image;
+	
+	public ProductDTO(String product_id) {
+		super();
+		this.product_id = product_id;
+	}
 
+	public ProductDTO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	
+	
+	
 }

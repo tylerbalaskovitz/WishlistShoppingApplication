@@ -42,12 +42,12 @@ public class ProductController {
 	};
 	
 	public Handler deleteProductHandler = (ctx) -> {
-//		String body = ctx.body();
-		int user_id = Integer.parseInt(ctx.pathParam("user_id"));
-		int product_id = Integer.parseInt(ctx.pathParam("product_id"));
-//		Gson gson = new Gson();
-	//	Wishlist deleteWishlist = gson.fromJson(body, Wishlist.class);
-		ps.deleteUserItem(user_id, product_id);
+		String body = ctx.body();
+		ProductDTO productid = new ProductDTO();
+		Gson gson = new Gson();
+		ProductDTO productID = gson.fromJson(body, ProductDTO.class);
+		System.out.println(productID);
+		ps.deleteUserItem(productID);
 		ctx.status(202);
 	};
 }

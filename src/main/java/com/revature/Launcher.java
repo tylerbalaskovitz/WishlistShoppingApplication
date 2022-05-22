@@ -34,7 +34,7 @@ public class Launcher {
 		app.post("/createuser", uc.newUserHandler);
 		
 		//adding a path parameter
-		app.delete("/deleteitem/{user_id}/{product_id}", pc.deleteProductHandler);
+		app.delete("/deleteitem", pc.deleteProductHandler);
 		
 		System.out.println("Hello, test for the GIT Pull and Pushes inconsistencies");
 		

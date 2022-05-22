@@ -6,8 +6,7 @@ import { AppState } from "../store/types";
 import { useSelector } from "react-redux";
 
  interface deleteItem {
-    id: string,
-    user_id: string
+    product_id: string
 }
 
 
@@ -19,7 +18,7 @@ export const deleteItem = (deleteItemCreds:deleteItem) => async (dispatch:any) =
 
     try {
         //send my HTTP request with axios, and put it into a variable we can use
-        const response = await axios.delete('http://localhost:5000/deleteitem/'+ deleteItemCreds.user_id +'/' + deleteItemCreds.id );
+        const response = await axios.delete('http://localhost:5500/deleteitem/' );
 
 
         if(response.status === 202) { //if the login was successful...
@@ -29,10 +28,13 @@ export const deleteItem = (deleteItemCreds:deleteItem) => async (dispatch:any) =
 
             //now we actually DISPATCH (send) this data to the store
             //notice in the reducers, this is the type of data we need for the Action object
+            console.log(deleteItemCreds.product_id)
             return dispatch({
                 type: REMOVE_ITEM,
                 payload: deleteItemCreds
+                
             })
+            
 
         }
 
