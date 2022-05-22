@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
  interface addItem {
     user_id: string,
-    product_id :string,
+    product_id :number,
     title: string,
     price: string,
     description: string,

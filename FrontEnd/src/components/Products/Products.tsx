@@ -6,6 +6,7 @@ import axios from 'axios'
 import "./Products.css"
 import { nItem } from '../../store/types'
 import { AppState } from '../../store/types'
+import { randomInt } from 'crypto'
 
 export const Products: React.FC<any> = (post:any) => {
     //instantiating a new dispatch object so we can send data to the database.
@@ -20,7 +21,7 @@ export const Products: React.FC<any> = (post:any) => {
 
     let newItem: nItem = {
         user_id: "",
-        product_id: "",
+        product_id: 0,
         title: "",
         price: "",
         description: "",
@@ -55,11 +56,13 @@ export const Products: React.FC<any> = (post:any) => {
     //when user updates the username/password field, this function is called
     //when user updates the values whichever is being updated changes
     //this is how we can send a username/password object to the CreateUser Action
-    
+    let productIDgenerator = randomInt(1000000);
+
+
     const setProductValues =async (productId: any, productImage: any, productTitle: any, productPrice: any, productCategory: any, productdescription: any) => {
         newItem = {
             user_id: appState.user.id,
-            product_id: productId,
+            product_id: productIDgenerator,
             title: productTitle,
             price: productPrice,
             description: productdescription,

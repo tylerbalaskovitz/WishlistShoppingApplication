@@ -8,6 +8,7 @@ let initialState:dItem = {
     id: "",
     user_id: ""
     
+    
 }
 
 

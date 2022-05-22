@@ -20,7 +20,7 @@ export const Jewelery: React.FC<any> = (post:any) => {
 
     let newItem: nItem = {
         user_id: "",
-        product_id: "",
+        product_id: 0,
         title: "",
         price: "",
         description: "",
