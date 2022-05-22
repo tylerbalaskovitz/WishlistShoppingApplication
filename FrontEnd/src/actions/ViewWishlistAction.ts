@@ -20,7 +20,7 @@ import { useSelector } from "react-redux";
      try {
         console.log("got here2")
          //send my HTTP request with axios, and put it into a variable we can use
-         const response = await axios.get('http://localhost:5000/userwishlist' + appState.user_id);
+         const response = await axios.get('http://localhost:5500/userwishlist' + appState.user_id);
  
          if(response.status === 202) { //if the login was successful...
              

@@ -18,7 +18,7 @@ export const deleteItem = (deleteItemCreds:deleteItem) => async (dispatch:any) =
 
     try {
         //send my HTTP request with axios, and put it into a variable we can use
-        const response = await axios.delete('http://localhost:5000/deleteitem/'+ appState.user.id +'/' + deleteItemCreds.id );
+        const response = await axios.delete('http://localhost:5500/deleteitem/'+ appState.user.id +'/' + deleteItemCreds.id );
 
         if(response.status === 202) { //if the login was successful...
             

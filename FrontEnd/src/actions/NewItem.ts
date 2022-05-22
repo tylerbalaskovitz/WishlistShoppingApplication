@@ -24,7 +24,7 @@ export const addNewItem = (addItemCreds:addItem) => async (dispatch:any) => {
 
     try {
         //send my HTTP request with axios, and put it into a variable we can use
-        const response = await axios.post('http://localhost:5000/addnewitem', addItemCreds);
+        const response = await axios.post('http://localhost:5500/addnewitem', addItemCreds);
 
         if(response.status === 202) { //if the login was successful...
             
