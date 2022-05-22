@@ -89,3 +89,4 @@ export const ViewWishlist: React.FC<any> = (get:any) => {
             </>
     );
 };
+
