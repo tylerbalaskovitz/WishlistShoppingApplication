@@ -79,23 +79,18 @@ export const Products: React.FC<any> = (post:any) => {
     navigate("/")
    }
    let Electronics = () => {
-    appState.user.id = 0
     navigate("/Electronics")
    }
    let Jewelery = () => {
-    appState.user.id = 0
     navigate("/Jewelery")
    }
    let MensClothing = () => {
-    appState.user.id = 0
     navigate("/MensClothing")
    }
    let WomensClothing = () => {
-    appState.user.id = 0
     navigate("/WomensClothing")
    }
    let products = () => {
-    appState.user.id = 0
     navigate("/Products")
    }
    

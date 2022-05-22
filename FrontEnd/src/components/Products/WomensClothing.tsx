@@ -20,7 +20,6 @@ export const WomensClothing: React.FC<any> = (post:any) => {
 
     let newItem: nItem = {
         user_id: "",
-        id: "",
         title: "",
         price: "",
         description: "",
@@ -59,7 +58,6 @@ export const WomensClothing: React.FC<any> = (post:any) => {
     const setProductValues =async (productId: any, productImage: any, productTitle: any, productPrice: any, productCategory: any, productdescription: any) => {
         newItem = {
             user_id: appState.user.id,
-            id: productId,
             title: productTitle,
             price: productPrice,
             description: productdescription,
@@ -81,23 +79,18 @@ export const WomensClothing: React.FC<any> = (post:any) => {
     navigate("/")
    }
    let Electronics = () => {
-    appState.user.id = 0
     navigate("/Electronics")
    }
    let Jewelery = () => {
-    appState.user.id = 0
     navigate("/Jewelery")
    }
    let MensClothing = () => {
-    appState.user.id = 0
     navigate("/MensClothing")
    }
    let WomensClothing = () => {
-    appState.user.id = 0
     navigate("/WomensClothing")
    }
    let products = () => {
-    appState.user.id = 0
     navigate("/Products")
    }
 
