@@ -6,12 +6,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("/public/wishlistbanner.png");
+    background-image: url("/public/wishlistBG.png");
     background-size: 40%;
     
 }
-
-
 
 
 .products-container {
