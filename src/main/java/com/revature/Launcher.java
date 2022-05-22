@@ -34,9 +34,9 @@ public class Launcher {
 		app.post("/createuser", uc.newUserHandler);
 		
 		//adding a path parameter
-		app.delete("/deleteitem", pc.deleteProductHandler);
+		app.delete("/deleteitem/{product_id}", pc.deleteProductHandler);
 		
-		System.out.println("Hello, test for the GIT Pull and Pushes inconsistencies");
+		
 		
 //		UserDAO uDAO = new UserDAO();
 //		User u1 = new User("username", "password", "BoB", "Anderson", "BoB@bob.com");

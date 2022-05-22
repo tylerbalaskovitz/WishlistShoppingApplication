@@ -74,9 +74,15 @@ public List<Wishlist> getUserWishList(int user_id){
 		
 		//SQL statement used to delete an item
 		Query q = ses.createQuery("Delete FROM Wishlist w WHERE w.product_id= ?0");
+		
+		
+		
 		q.setParameter(0, product_id);
 		//the parameter 0 matches the 0 above in the query statement from above and the user_id int would be the row that it is deleting from 
 		//just like JDBC, the execute update needs to occur
+		
+		System.out.println(product_id);
+		
 		q.executeUpdate();
 
 		//finally a commit must occur when updating and/or deleting data from the databases.
