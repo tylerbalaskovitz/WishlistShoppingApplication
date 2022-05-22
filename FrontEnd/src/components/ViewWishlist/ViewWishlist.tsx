@@ -23,11 +23,11 @@ export const ViewWishlist: React.FC<any> = (get:any) => {
         setLoading(true);
         axios({
             method:"GET",
-            url: "https://localhost:5000/userwishlist/" + appState.user.id
+            url: "http://localhost:5500/userwishlist/" + appState.user.id
             //when the promise is finished do the then statement
             //like an if then.
         }).then(res=> {
-            console.log();
+            console.log(appState.user.id);
             setData(res.data)
             //the setState setData is setting the state of res being put into the function and the data grabbed from the axios call of the url using the GET method.
 

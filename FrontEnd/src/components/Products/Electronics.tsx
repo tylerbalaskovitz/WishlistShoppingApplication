@@ -79,26 +79,30 @@ export const Electronics: React.FC<any> = (post:any) => {
     navigate("/")
    }
    let Electronics = () => {
+    appState.user.id = 0
     navigate("/Electronics")
    }
    let Jewelery = () => {
+    appState.user.id = 0
     navigate("/Jewelery")
    }
    let MensClothing = () => {
+    appState.user.id = 0
     navigate("/MensClothing")
    }
    let WomensClothing = () => {
+    appState.user.id = 0
     navigate("/WomensClothing")
    }
-   let products = () => {
-    navigate("/Products")
-   }
+   let wishlist = () => {
+    navigate ("/viewwishlist")
+    }
    
     return (
        <>
        <div className = "background">
        <div className="Navigation bar">
-       <button> Go To wishlist</button><button onClick={products}> View All Products</button><button onClick={logout}>Log Out</button>
+       <button onClick={wishlist}> Go To wishlist</button><button onClick={logout}>Log Out</button>
        <h6>Categories:</h6>
        <button onClick={Electronics}> Electronics </button><button onClick={Jewelery}>Jewelery</button><button onClick={MensClothing}> Men's Clothing </button><button onClick={WomensClothing}>Women's Clothing</button>
        </div>
