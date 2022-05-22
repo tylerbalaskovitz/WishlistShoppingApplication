@@ -88,7 +88,7 @@ export const Login: React.FC<any> = () => {
              </div>
           
                 <div className="disclaimer">
-                <p> ©WishList 2022 All Rights Reserved - Team-1 from Revature</p>
+                <p> ©WishList 2022 All Rights Reserved - Team 1 from Revature</p>
                 </div>
         </div>
 
