@@ -91,6 +91,9 @@ export const CreateUser: React.FC<any> = (post:any) => {
                 <button className="createUSerbutton" onClick={newUser}>Create New User</button> 
             
                 </div>  
+                <div className="disclaimer">
+                <p> ©WishList 2022 All Rights Reserve - Team1 from Revature</p>
+                </div>
 
         </div>
        

@@ -20,7 +20,7 @@ public class Launcher {
 					config.enableCorsForAllOrigins();
 				}
 				
-			).start(5000);
+			).start(5500);
 		System.out.print("Got here");
 		
 		//This HTTP request is used to login using the User Controller's login handler
