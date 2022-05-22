@@ -33,7 +33,7 @@ public int id;
 //			q.setParameter(6, currentUser.getId());
 //			//the closeSession method is used with the hibernate utility to close the session. 
 //			w.user_fk = currentUser;
-			ses.persist(w);
+			ses.save(w);
 //			q.executeUpdate();
 //			tran.commit();
 			HibernateUtil.closeSession();
