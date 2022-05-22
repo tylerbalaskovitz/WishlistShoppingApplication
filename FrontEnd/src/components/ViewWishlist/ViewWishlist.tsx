@@ -47,8 +47,9 @@ export const ViewWishlist: React.FC<any> = (get:any) => {
     let deleteProduct =async (productId: any) => {
         //this is where we'll call appstate
         let dItem = {
-            id: productId,
+            product_id: productId, 
         }
+        console.log(dItem.product_id);
     await dispatch(
         deleteItem(productId) as any
         //these are the states that were changed with handleChange
@@ -78,7 +79,7 @@ export const ViewWishlist: React.FC<any> = (get:any) => {
             <h6>{product.title}</h6>
             <h6>{`Price: ${product.price}`}</h6>
             <h6>{`Category: ${product.category}`}</h6>
-            <button className = "deleteButton" onClick={() => deleteProduct(product.id)}>Remove From Wishlist</button>
+            <button className = "deleteButton" onClick={() => deleteProduct(product.product_id)}>Remove From Wishlist</button>
             
             </div>
             </div>

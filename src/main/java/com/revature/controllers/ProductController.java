@@ -42,9 +42,13 @@ public class ProductController {
 	};
 	
 	public Handler deleteProductHandler = (ctx) -> {
+		//requests the CTX context file's body as a string
 		String body = ctx.body();
-		ProductDTO productid = new ProductDTO();
+
+		//we make a GSON object called gson
 		Gson gson = new Gson();
+		ProductDTO pdto = new ProductDTO();
+		//Use the new constructor of our productDTO class.
 		ProductDTO productID = gson.fromJson(body, ProductDTO.class);
 		System.out.println(productID);
 		ps.deleteUserItem(productID);
