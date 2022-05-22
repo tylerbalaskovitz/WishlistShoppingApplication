@@ -5,7 +5,7 @@ import { nItem } from "../store/types";
 
 let initialState:nItem = {
     user_id: "",
-    product_id: 0,
+    product_id: "",
     title: "",
     price: "",
     description: "",

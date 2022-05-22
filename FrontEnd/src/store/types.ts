@@ -16,7 +16,7 @@ export interface NUser {
 }
 export interface nItem {
     user_id: string,
-    product_id: number,
+    product_id: string,
     title: string;
     price: string;
     description: string;

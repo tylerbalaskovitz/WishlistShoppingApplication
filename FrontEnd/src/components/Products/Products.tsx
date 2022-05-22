@@ -21,7 +21,7 @@ export const Products: React.FC<any> = (post:any) => {
 
     let newItem: nItem = {
         user_id: "",
-        product_id: 0,
+        product_id: "",
         title: "",
         price: "",
         description: "",
@@ -56,13 +56,13 @@ export const Products: React.FC<any> = (post:any) => {
     //when user updates the username/password field, this function is called
     //when user updates the values whichever is being updated changes
     //this is how we can send a username/password object to the CreateUser Action
-    let productIDgenerator = randomInt(1000000);
+   // let productIDgenerator = randomInt(248);
 
 
     const setProductValues =async (productId: any, productImage: any, productTitle: any, productPrice: any, productCategory: any, productdescription: any) => {
         newItem = {
             user_id: appState.user.id,
-            product_id: productIDgenerator,
+            product_id: productId,
             title: productTitle,
             price: productPrice,
             description: productdescription,
