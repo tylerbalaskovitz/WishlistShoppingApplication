@@ -17,15 +17,15 @@ public class ProductService {
 	public void addProductService(ProductDTO pDTO) {
 		User currentUser = uDAO.getUserbyId(Integer.parseInt(pDTO.user_id));
 		Wishlist currentWishlist = new Wishlist(
-				Integer.parseInt(pDTO.id),
 				pDTO.title,
 				pDTO.price,
 				pDTO.description,
 				pDTO.category,
-				pDTO.image
+				pDTO.image,
+				currentUser
 				);
 	
-		pDAO.addProductToUser(currentUser, currentWishlist);
+		pDAO.addProductToUser(currentWishlist);
 		
 	}
 	

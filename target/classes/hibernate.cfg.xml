@@ -9,7 +9,7 @@
  	
  	<!-- JDBC -->
 		<property name="hibernate.connection.username">postgres</property>
-		<property name="hibernate.connection.password">rev1val</property>
+		<property name="hibernate.connection.password">password</property>
 		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres?currentSchema=wishlist_schema;</property>
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
 		<!-- Hibernate Properties -->

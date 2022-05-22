@@ -51,25 +51,9 @@ public class Wishlist {
 		//IMPORTANT NOTE: @Column will break this, because @JoinColumn already makes it a column
 		
 		//there still needs to be code for referencing the user table via a FK
-		//for users to have individual wishlists.
-		
-		
-		
-
-
+		//for users to have individual wishlists
 
 		
-
-		
-
-		public int getId() {
-			return id;
-		}
-
-		public Wishlist() {
-			super();
-			// TODO Auto-generated constructor stub
-		}
 
 		public Wishlist(int id, String title, String price, String description, String category, String image) {
 			super();
@@ -81,6 +65,23 @@ public class Wishlist {
 			this.image = image;
 		}
 
+		public Wishlist(String title, String price, String description, String category, String image, User user_fk) {
+			super();
+			this.title = title;
+			this.price = price;
+			this.description = description;
+			this.category = category;
+			this.image = image;
+			this.user_fk = user_fk;
+		}
+
+		public Wishlist() {
+			super();
+			// TODO Auto-generated constructor stub
+		}
+		public int getId() {
+			return id;
+		}
 		public void setId(int id) {
 			this.id = id;
 		}
@@ -125,12 +126,6 @@ public class Wishlist {
 			this.image = image;
 		}
 
-		
-
-
-
-		
-		
 }
 	
 
