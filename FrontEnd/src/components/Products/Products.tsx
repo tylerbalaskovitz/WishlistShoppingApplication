@@ -7,6 +7,7 @@ import "./Products.css"
 import { nItem } from '../../store/types'
 import { AppState } from '../../store/types'
 import { randomInt } from 'crypto'
+import { resolveModuleNameFromCache } from 'typescript'
 
 export const Products: React.FC<any> = (post:any) => {
     //instantiating a new dispatch object so we can send data to the database.
@@ -18,6 +19,7 @@ export const Products: React.FC<any> = (post:any) => {
     //When constructing set data, and doing a useState for data coming in an array
     //make sure that the useState is ALSO in an array with ANY type of data to go into it.
     const [data, setData] = useState<any[]>([])
+    const [uuid, setUUID] = useState<any>()
 
     let newItem: nItem = {
         user_id: "",
@@ -47,7 +49,28 @@ export const Products: React.FC<any> = (post:any) => {
         //catching if an error appears via logging the error e, and then loading will be set to false and the url will NOT be grabbed.
 
     },[])
+    let getUUID = () => {
+        setUUID("");
+        setLoading(true);
 
+        axios({
+            method:"GET",
+            url: "https://www.uuidgenerator.net/api/guid"
+            //when the promise is finished do the then statement
+            //like an if then.
+        }).then(res=> {
+            
+            setUUID(res.data)
+            
+            //the setState setData is setting the state of res being put into the function and the data grabbed from the axios call of the url using the GET method.
+
+
+        }).catch(e=>console.log(e))
+        .finally(()=> setLoading(false));
+        //catching if an error appears via logging the error e, and then loading will be set to false and the url will NOT be grabbed.
+       
+    }
+    console.log(uuid);
     console.log("Hello friends")
 
     
@@ -58,11 +81,12 @@ export const Products: React.FC<any> = (post:any) => {
     //this is how we can send a username/password object to the CreateUser Action
    // let productIDgenerator = randomInt(248);
 
-
-    const setProductValues =async (productId: any, productImage: any, productTitle: any, productPrice: any, productCategory: any, productdescription: any) => {
+    
+    const setProductValues =async (product_id: any, productImage: any, productTitle: any, productPrice: any, productCategory: any, productdescription: any) => {
+       
         newItem = {
             user_id: appState.user.id,
-            product_id: productId,
+            product_id: uuid,
             title: productTitle,
             price: productPrice,
             description: productdescription,
@@ -74,7 +98,9 @@ export const Products: React.FC<any> = (post:any) => {
         addNewItem(newItem) as any
         //these are the states that were changed with handleChange
         //we need "as any" to make it so that the return type can be any type
-    )
+        
+        )
+
    }
 
 
@@ -122,7 +148,7 @@ export const Products: React.FC<any> = (post:any) => {
             <h6>{product.title}</h6>
             <h6>{`Price: ${product.price}`}</h6>
             <h6>{`Category: ${product.category}`}</h6>
-            <button className = "addToWishList" onClick={() => setProductValues(product.id, product.image, product.title, product.price, product.category, product.description)}>Add to Wishlist</button>
+            <button className = "addToWishList" onClick={() => {setProductValues(product.id, product.image, product.title, product.price, product.category, product.description); getUUID();}}>Add to Wishlist</button>
             
             </div>
             </div>
