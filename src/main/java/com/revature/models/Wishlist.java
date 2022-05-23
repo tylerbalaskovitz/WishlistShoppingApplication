@@ -28,7 +28,7 @@ public class Wishlist {
 		@Column
 		private int id;
 		@Column
-		private int product_id;
+		private String product_id;
 		@Column
 		private String title;
 		@Column
@@ -58,7 +58,7 @@ public class Wishlist {
 			super();
 			// TODO Auto-generated constructor stub
 		}
-		public Wishlist(int id, int product_id, String title, String price, String description, String category,
+		public Wishlist(int id, String product_id, String title, String price, String description, String category,
 				String image, User user_fk) {
 			super();
 			this.id = id;
@@ -70,7 +70,7 @@ public class Wishlist {
 			this.image = image;
 			this.user_fk = user_fk;
 		}
-		public Wishlist(int product_id, String title, String price, String description, String category, String image,
+		public Wishlist(String product_id, String title, String price, String description, String category, String image,
 				User user_fk) {
 			super();
 			this.product_id = product_id;
@@ -79,6 +79,54 @@ public class Wishlist {
 			this.description = description;
 			this.category = category;
 			this.image = image;
+			this.user_fk = user_fk;
+		}
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		}
+		public String getProduct_id() {
+			return product_id;
+		}
+		public void setProduct_id(String product_id) {
+			this.product_id = product_id;
+		}
+		public String getTitle() {
+			return title;
+		}
+		public void setTitle(String title) {
+			this.title = title;
+		}
+		public String getPrice() {
+			return price;
+		}
+		public void setPrice(String price) {
+			this.price = price;
+		}
+		public String getDescription() {
+			return description;
+		}
+		public void setDescription(String description) {
+			this.description = description;
+		}
+		public String getCategory() {
+			return category;
+		}
+		public void setCategory(String category) {
+			this.category = category;
+		}
+		public String getImage() {
+			return image;
+		}
+		public void setImage(String image) {
+			this.image = image;
+		}
+		public User getUser_fk() {
+			return user_fk;
+		}
+		public void setUser_fk(User user_fk) {
 			this.user_fk = user_fk;
 		}
 		
