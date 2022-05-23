@@ -34,6 +34,7 @@ public class ProductController {
 		String body = ctx.body();
 		Gson gson = new Gson();
 		int user_id = Integer.parseInt(ctx.pathParam("user_id"));
+		System.out.print(user_id);
 		List<Wishlist> userWishlist = ps.getUserWishList(user_id);
 		System.out.print(userWishlist);
 		ctx.result(gson.toJson(ps.getUserWishList(user_id)));
