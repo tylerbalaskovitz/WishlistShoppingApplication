@@ -36,7 +36,7 @@ export const ViewWishlist: React.FC<any> = (get:any) => {
         .finally(()=> setLoading(false));
         //catching if an error appears via logging the error e, and then loading will be set to false and the url will NOT be grabbed.
 
-    },[])
+    },[appState])
 
 
 
@@ -51,7 +51,7 @@ export const ViewWishlist: React.FC<any> = (get:any) => {
         }
         console.log(dItem.product_id);
     await dispatch(
-        deleteItem(productId) as any
+        deleteItem(dItem) as any
         //these are the states that were changed with handleChange
         //we need "as any" to make it so that the return type can be any type
     )
