@@ -50,7 +50,7 @@ public class ProductService {
 //		System.out.println(deleteItemString);
 		pDAO.deleteItembyUser(deleteProduct);
 		
-		
+	//trying to fix merge please help us
 		
 		
 	}
