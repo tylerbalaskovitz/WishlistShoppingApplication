@@ -33,7 +33,7 @@ export const MensClothing: React.FC<any> = (post:any) => {
          setLoading(true);
          axios({
              method:"GET",
-             url: "https://fakestoreapi.com/products"
+             url: "https://fakestoreapi.com/products/category/men's clothing"
              //when the promise is finished do the then statement
              //like an if then.
          }).then(res=> {
@@ -46,7 +46,7 @@ export const MensClothing: React.FC<any> = (post:any) => {
          .finally(()=> setLoading(false));
          //catching if an error appears via logging the error e, and then loading will be set to false and the url will NOT be grabbed.
  
-     },[])
+     },[appState])
      let getUUID = () => {
          setUUID("");
          setLoading(true);
