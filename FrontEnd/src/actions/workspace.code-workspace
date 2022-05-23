@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\..\\..\\..\\Ben_Demos\\demos\\Week7"
+		},
+		{
+			"path": "..\\..\\..\\.."
+		},
+		{
+			"path": "..\\..\\..\\..\\..\\Project1"
+		},
+		{
+			"path": "..\\.."
+		},
+		{
+			"path": "..\\..\\..\\..\\..\\ReactPractice"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}
