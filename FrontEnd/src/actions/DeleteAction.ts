@@ -28,14 +28,11 @@ export const deleteItem = (deleteItemCreds:deleteItem) => async (dispatch:any) =
 
             //now we actually DISPATCH (send) this data to the store
             //notice in the reducers, this is the type of data we need for the Action object
-            console.log(deleteItemCreds.product_id)
             return dispatch({
                 type: REMOVE_ITEM,
                 payload: deleteItemCreds
                 
             })
-            
-
         }
 
     } catch (e) {
