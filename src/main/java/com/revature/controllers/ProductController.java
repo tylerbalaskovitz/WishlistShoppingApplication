@@ -45,7 +45,7 @@ public class ProductController {
 	public Handler deleteProductHandler = (ctx) -> {
 		
 		String product_id = ctx.pathParam("product_id");
-		System.out.print(product_id);
+		System.out.println(product_id);
 		
 		//requests the CTX context file's body as a string
 //		String body = ctx.body();
